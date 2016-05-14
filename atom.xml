@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Res2013博客</title>
   <subtitle>优秀不够!你是否无可替代?</subtitle>
-  <link href="/atom.xml" rel="self"/>
+  <link href="//atom.xml" rel="self"/>
   
   <link href="http://Res2013.github.io/"/>
-  <updated>2016-05-14T07:30:16.757Z</updated>
+  <updated>2016-05-14T11:48:54.976Z</updated>
   <id>http://Res2013.github.io/</id>
   
   <author>
@@ -20,18 +20,47 @@
     <link href="http://Res2013.github.io/2016/05/14/GitHub%E4%B8%8A%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
     <id>http://Res2013.github.io/2016/05/14/GitHub上用Hexo搭建静态博客/</id>
     <published>2016-05-14T03:38:57.000Z</published>
-    <updated>2016-05-14T07:30:16.757Z</updated>
+    <updated>2016-05-14T11:48:54.976Z</updated>
     
-    <content type="html">&lt;p&gt;这篇文章主要是记录利用Hexo搭建静态博客并部署到GitHub.&lt;/p&gt;
-&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;h3 id=&quot;WIN7环境下安装msysgit和node-js&quot;&gt;&lt;a href=&quot;#WIN7环境下安装msysgit和node-js&quot; class=&quot;headerlink&quot; title=&quot;WIN7环境下安装msysgit和node.js&quot;&gt;&lt;/a&gt;WIN7环境下安装&lt;a href=&quot;https://git-for-windows.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;msysgit&lt;/a&gt;和&lt;a href=&quot;https://nodejs.org/en/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;node.js&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;利用node.js里自带的npm安装hexo&lt;/p&gt;
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;这篇文章主要是记录利用Hexo搭建静态博客并部署到GitHub.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Hexo简介&quot;&gt;&lt;a href=&quot;#Hexo简介&quot; class=&quot;headerlink&quot; title=&quot;Hexo简介&quot;&gt;&lt;/a&gt;Hexo简介&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;hexo&lt;/strong&gt; 是一个基于&lt;code&gt;Node.js&lt;/code&gt;的静态博客程序，代码托管在&lt;a href=&quot;http://www.github.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;上。&lt;/p&gt;
+&lt;h3 id=&quot;为什么用Hexo&quot;&gt;&lt;a href=&quot;#为什么用Hexo&quot; class=&quot;headerlink&quot; title=&quot;为什么用Hexo&quot;&gt;&lt;/a&gt;为什么用Hexo&lt;/h3&gt;&lt;p&gt;&lt;code&gt;Hexo&lt;/code&gt;简单优雅，而且风格多变，适合搭建个人博客，且支持多平台&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;h3 id=&quot;安装msysgit和node-js&quot;&gt;&lt;a href=&quot;#安装msysgit和node-js&quot; class=&quot;headerlink&quot; title=&quot;安装msysgit和node.js&quot;&gt;&lt;/a&gt;安装&lt;a href=&quot;https://git-for-windows.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;msysgit&lt;/a&gt;和&lt;a href=&quot;https://nodejs.org/en/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;node.js&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;利用&lt;code&gt;node.js&lt;/code&gt;里自带的&lt;code&gt;npm&lt;/code&gt;安装&lt;code&gt;hexo&lt;/code&gt;&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ npm install -g hexo-cli&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;开始使用&quot;&gt;&lt;a href=&quot;#开始使用&quot; class=&quot;headerlink&quot; title=&quot;开始使用&quot;&gt;&lt;/a&gt;开始使用&lt;/h2&gt;&lt;h3 id=&quot;创建网站并安装所依赖的插件&quot;&gt;&lt;a href=&quot;#创建网站并安装所依赖的插件&quot; class=&quot;headerlink&quot; title=&quot;创建网站并安装所依赖的插件&quot;&gt;&lt;/a&gt;创建网站并安装所依赖的插件&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo init &amp;lt;blogfolder&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; &amp;lt;blogfolder&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;开始使用&quot;&gt;&lt;a href=&quot;#开始使用&quot; class=&quot;headerlink&quot; title=&quot;开始使用&quot;&gt;&lt;/a&gt;开始使用&lt;/h2&gt;&lt;h3 id=&quot;创建站点&quot;&gt;&lt;a href=&quot;#创建站点&quot; class=&quot;headerlink&quot; title=&quot;创建站点&quot;&gt;&lt;/a&gt;创建站点&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo init &amp;lt;blogfolder&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; &amp;lt;blogfolder&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;安装所依赖的插件&quot;&gt;&lt;a href=&quot;#安装所依赖的插件&quot; class=&quot;headerlink&quot; title=&quot;安装所依赖的插件&quot;&gt;&lt;/a&gt;安装所依赖的插件&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; &amp;lt;blogfolder&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;下载主题&quot;&gt;&lt;a href=&quot;#下载主题&quot; class=&quot;headerlink&quot; title=&quot;下载主题&quot;&gt;&lt;/a&gt;下载主题&lt;/h3&gt;&lt;p&gt;我目前用的是比较火的Next主题&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; git@github.com:iissnan/hexo-theme-next.git themes/next&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;下载的主题放到&lt;code&gt;blogfolder&lt;/code&gt;里的&lt;code&gt;thems/next&lt;/code&gt;目录下&lt;/p&gt;
+&lt;h3 id=&quot;配置站点的-config-yml文件&quot;&gt;&lt;a href=&quot;#配置站点的-config-yml文件&quot; class=&quot;headerlink&quot; title=&quot;配置站点的_config.yml文件&quot;&gt;&lt;/a&gt;配置站点的_config.yml文件&lt;/h3&gt;&lt;p&gt;复制过来的主题在&lt;code&gt;_config.yml&lt;/code&gt;中配置,如:&lt;/p&gt;
+&lt;figure class=&quot;highlight markdown&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;theme: theme-name&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;更多配置信息参考&lt;a href=&quot;https://hexo.io/zh-cn/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo官方文档&lt;/a&gt;和&lt;a href=&quot;http://theme-next.iissnan.com/theme-settings.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NexT主题配置文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;更多文章排版信息请访问&lt;a href=&quot;https://www.zybuluo.com/mdeditor&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@Cmd Markdown编辑阅读器&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;本地测试博客&quot;&gt;&lt;a href=&quot;#本地测试博客&quot; class=&quot;headerlink&quot; title=&quot;本地测试博客&quot;&gt;&lt;/a&gt;本地测试博客&lt;/h3&gt;&lt;h4 id=&quot;执行命令&quot;&gt;&lt;a href=&quot;#执行命令&quot; class=&quot;headerlink&quot; title=&quot;执行命令&quot;&gt;&lt;/a&gt;执行命令&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo clean&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generator// 可简写`hexo g`&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server// 调试模式可以加上`--debug`,也可简写为`hexo s`&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;通过&lt;code&gt;localhost:4000&lt;/code&gt;本地访问博客站点&lt;/p&gt;
+&lt;h3 id=&quot;部署博客到Github上&quot;&gt;&lt;a href=&quot;#部署博客到Github上&quot; class=&quot;headerlink&quot; title=&quot;部署博客到Github上&quot;&gt;&lt;/a&gt;部署博客到Github上&lt;/h3&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;前提条件是GitHub上已添加&lt;code&gt;SSH Key&lt;/code&gt;&lt;a href=&quot;https://help.github.com/articles/checking-for-existing-ssh-keys/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub SSH Keys Guide&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;GitHub上新建一个项目,项目名必须为:&lt;code&gt;username.github.io&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;配置站点的-config-yml文件-1&quot;&gt;&lt;a href=&quot;#配置站点的-config-yml文件-1&quot; class=&quot;headerlink&quot; title=&quot;配置站点的_config.yml文件&quot;&gt;&lt;/a&gt;配置站点的&lt;code&gt;_config.yml&lt;/code&gt;文件&lt;/h4&gt;&lt;figure class=&quot;highlight markdown&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;deploy:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;code&quot;&gt;	type: git// Hexo更新到3.0以后type由github改成了git&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;code&quot;&gt;	repository: git@github.com:username/username.github.io.git&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;code&quot;&gt;	branch: master&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;部署到username-github-io项目上&quot;&gt;&lt;a href=&quot;#部署到username-github-io项目上&quot; class=&quot;headerlink&quot; title=&quot;部署到username.github.io项目上&quot;&gt;&lt;/a&gt;部署到&lt;code&gt;username.github.io&lt;/code&gt;项目上&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy// 可简写为`hexo d`&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;作者 &lt;a href=&quot;https://github.com/Res2013&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@Res2013&lt;/a&gt;&lt;br&gt;2016 年 05月 14日&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;这篇文章主要是记录利用Hexo搭建静态博客并部署到GitHub.&lt;/p&gt;
-&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;h3 id=&quot;WIN7环境下安装msysgit和
+      &lt;blockquote&gt;
+&lt;p&gt;这篇文章主要是记录利用Hexo搭建静态博客并部署到GitHub.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Hexo简介&quot;&gt;&lt;a href=&quot;#Hexo简介&quot; class=&quot;headerlink&quot; title=&quot;Hexo简介&quot;&gt;&lt;/a&gt;Hexo简介&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;hexo&lt;/strong&gt; 是一个基于&lt;code&gt;Node.js&lt;/code&gt;的静态博客程序，代码托管在&lt;a href=&quot;http://www.github.com&quot;&gt;GitHub&lt;/a&gt;上。&lt;/p&gt;
+&lt;h3 id=&quot;为什么用Hexo&quot;&gt;&lt;a href=&quot;#为什么用Hexo&quot; class=&quot;headerlink&quot; title=&quot;为什么用Hexo&quot;&gt;&lt;/a&gt;为什么用Hexo&lt;/h3&gt;&lt;p&gt;&lt;code&gt;Hexo&lt;/code&gt;简单优雅，而且风格多变，适合搭建个人博客，且支持多平台&lt;/p&gt;
     
     </summary>
     
@@ -40,34 +69,7 @@
     
       <category term="Hexo" scheme="http://Res2013.github.io/tags/Hexo/"/>
     
-      <category term="blog" scheme="http://Res2013.github.io/tags/blog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://Res2013.github.io/2016/05/14/hello-world/"/>
-    <id>http://Res2013.github.io/2016/05/14/hello-world/</id>
-    <published>2016-05-13T16:49:41.427Z</published>
-    <updated>2016-05-13T16:51:57.780Z</updated>
-    
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
+      <category term="Node.js" scheme="http://Res2013.github.io/tags/Node-js/"/>
     
   </entry>
   
