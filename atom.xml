@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Res2013.github.io/"/>
-  <updated>2016-05-13T16:51:57.780Z</updated>
+  <updated>2016-05-14T07:30:16.757Z</updated>
   <id>http://Res2013.github.io/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo搭建静态博客并部署到GitHub</title>
+    <link href="http://Res2013.github.io/2016/05/14/GitHub%E4%B8%8A%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://Res2013.github.io/2016/05/14/GitHub上用Hexo搭建静态博客/</id>
+    <published>2016-05-14T03:38:57.000Z</published>
+    <updated>2016-05-14T07:30:16.757Z</updated>
+    
+    <content type="html">&lt;p&gt;这篇文章主要是记录利用Hexo搭建静态博客并部署到GitHub.&lt;/p&gt;
+&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;h3 id=&quot;WIN7环境下安装msysgit和node-js&quot;&gt;&lt;a href=&quot;#WIN7环境下安装msysgit和node-js&quot; class=&quot;headerlink&quot; title=&quot;WIN7环境下安装msysgit和node.js&quot;&gt;&lt;/a&gt;WIN7环境下安装&lt;a href=&quot;https://git-for-windows.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;msysgit&lt;/a&gt;和&lt;a href=&quot;https://nodejs.org/en/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;node.js&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;利用node.js里自带的npm安装hexo&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ npm install -g hexo-cli&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;开始使用&quot;&gt;&lt;a href=&quot;#开始使用&quot; class=&quot;headerlink&quot; title=&quot;开始使用&quot;&gt;&lt;/a&gt;开始使用&lt;/h2&gt;&lt;h3 id=&quot;创建网站并安装所依赖的插件&quot;&gt;&lt;a href=&quot;#创建网站并安装所依赖的插件&quot; class=&quot;headerlink&quot; title=&quot;创建网站并安装所依赖的插件&quot;&gt;&lt;/a&gt;创建网站并安装所依赖的插件&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo init &amp;lt;blogfolder&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; &amp;lt;blogfolder&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这篇文章主要是记录利用Hexo搭建静态博客并部署到GitHub.&lt;/p&gt;
+&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;h3 id=&quot;WIN7环境下安装msysgit和
+    
+    </summary>
+    
+      <category term="软件详细使用步骤" scheme="http://Res2013.github.io/categories/%E8%BD%AF%E4%BB%B6%E8%AF%A6%E7%BB%86%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4/"/>
+    
+    
+      <category term="Hexo" scheme="http://Res2013.github.io/tags/Hexo/"/>
+    
+      <category term="blog" scheme="http://Res2013.github.io/tags/blog/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
