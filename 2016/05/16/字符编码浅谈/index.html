@@ -106,7 +106,7 @@
 &amp;emsp;&amp;emsp;Unicode编码也叫做统一码、万国码、单一码，是计算机科学领域里的一项业界标准，包括字符集、编码方案等。
 
 为什么有Unicode编码?">
-<meta property="og:updated_time" content="2016-05-15T17:44:48.797Z">
+<meta property="og:updated_time" content="2016-05-15T18:19:51.550Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符编码浅谈">
 <meta name="twitter:description" content="为什么有字符编码?
@@ -404,6 +404,7 @@
 <p>&emsp;&emsp;例如:一般网页编程的时候会在<code>JSP</code>页面添加：<br><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=<span class="string">"content-type"</span> content=<span class="string">"text/html;charset=utf-8"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;因为Servlet规范默认是使用ISO-8559-1编码，所以也需要设置编码格式，如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">...</span><br><span class="line">response.setContentType(<span class="string">"text/html;charset=utf-8"</span>);</span><br></pre></td></tr></table></figure></p>
 <p>值得注意的是:当你设置响应的编码格式是<code>utf-8</code>，在<code>TCP/IP Monitor</code>截获到的数据显示可能会乱码，为什么呢？这是因为一般本地<code>MyEclipse</code>默认编码、解码格式是<code>gbk</code>，当流向<code>MyEclipse</code>界面输出的数据编码格式是<code>utf-8</code>，那么解码后的数据就会出现乱码。<br>&emsp;&emsp;一般的Java程序，文件流的默认编码格式是在<code>JVM</code>刚启动的时候从本机系统配置文件读取的，这点也要记住！</p>
+<p>&emsp;&emsp;临时想到一点: 本文网址是<code>http://res2013.github.io/2016/05/16/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%B5%85%E8%B0%88/</code>，那么后面的这个字符串<code>%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%B5%85%E8%B0%88</code>是相关的API用<code>%</code>符号把十六进制数隔开了，去掉<code>%</code>符号，每三个十六进制数对应三个字节，也就是对应一个汉字，刚好十八个十六进制数，对应十八个字节即是六个汉字，也就是这篇文章的题目”字符编码浅谈”,这里用到的就是<code>utf-8</code>编码(<code>utf-8</code>编码中，汉字通常是3个字节，只有生僻的字符是4-6个字节)。</p>
 </blockquote>
 <p>作者 <a href="https://www.github.com/Res2013" target="_blank" rel="external">@Res2013</a><br>2016 年 05月 16日</p>
 
