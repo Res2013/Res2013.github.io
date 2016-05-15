@@ -46,12 +46,8 @@
 </blockquote>
 <h2 id="运用环境"><a href="#运用环境" class="headerlink" title="运用环境"></a>运用环境</h2><blockquote>
 <p>&emsp;&emsp;例如:一般网页编程的时候会在<code>JSP</code>页面添加：<br><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=<span class="string">"content-type"</span> content=<span class="string">"text/html;charset=utf-8"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>resp.setContentType(“text/html;charset=utf-8”);因为Servlet规范默认是使用ISO-8559-1编码，所以也需要设置编码格式，如下： </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">...</span><br><span class="line">response.setContentType(<span class="string">"text/html;charset=utf-8"</span>);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>值得注意的是:当你设置响应的编码格式是<code>utf-8</code>，在<code>TCP/IP Monitor</code>截获到的数据显示可能会乱码，为什么呢？这是因为一般本地<code>MyEclipse</code>默认编码、解码格式是<code>gbk</code>，当流向<code>MyEclipse</code>界面输出的数据编码格式是<code>utf-8</code>，那么解码后的数据就会出现乱码。</p>
-<p>&emsp;&emsp;一般的Java程序，文件流的默认编码格式是在<code>JVM</code>刚启动的时候从本机系统配置文件读取的，这点也要记住！</p>
+<p>&emsp;&emsp;因为Servlet规范默认是使用ISO-8559-1编码，所以也需要设置编码格式，如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">...</span><br><span class="line">response.setContentType(<span class="string">"text/html;charset=utf-8"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>值得注意的是:当你设置响应的编码格式是<code>utf-8</code>，在<code>TCP/IP Monitor</code>截获到的数据显示可能会乱码，为什么呢？这是因为一般本地<code>MyEclipse</code>默认编码、解码格式是<code>gbk</code>，当流向<code>MyEclipse</code>界面输出的数据编码格式是<code>utf-8</code>，那么解码后的数据就会出现乱码。<br>&emsp;&emsp;一般的Java程序，文件流的默认编码格式是在<code>JVM</code>刚启动的时候从本机系统配置文件读取的，这点也要记住！</p>
 </blockquote>
 <p>作者 <a href="https://www.github.com/Res2013" target="_blank" rel="external">@Res2013</a><br>2016 年 05月 16日</p>
 ]]></content>

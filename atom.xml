@@ -5,7 +5,7 @@
   <link href="//atom.xml" rel="self"/>
   
   <link href="http://Res2013.github.io/"/>
-  <updated>2016-05-15T17:35:53.318Z</updated>
+  <updated>2016-05-15T17:41:13.867Z</updated>
   <id>http://Res2013.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://Res2013.github.io/2016/05/16/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%B5%85%E8%B0%88/"/>
     <id>http://Res2013.github.io/2016/05/16/字符编码浅谈/</id>
     <published>2016-05-15T17:27:18.000Z</published>
-    <updated>2016-05-15T17:35:53.318Z</updated>
+    <updated>2016-05-15T17:41:13.867Z</updated>
     
     <content type="html">&lt;h2 id=&quot;为什么有字符编码&quot;&gt;&lt;a href=&quot;#为什么有字符编码&quot; class=&quot;headerlink&quot; title=&quot;为什么有字符编码?&quot;&gt;&lt;/a&gt;为什么有字符编码?&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能够处理。最早的时候只有127个大小写英文字母、数字和一些符号被编码到计算机里,称为&lt;code&gt;ASCII&lt;/code&gt;编码。&lt;/p&gt;
@@ -62,12 +62,8 @@
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;运用环境&quot;&gt;&lt;a href=&quot;#运用环境&quot; class=&quot;headerlink&quot; title=&quot;运用环境&quot;&gt;&lt;/a&gt;运用环境&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;例如:一般网页编程的时候会在&lt;code&gt;JSP&lt;/code&gt;页面添加：&lt;br&gt;&lt;figure class=&quot;highlight jsp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;meta http-equiv=&lt;span class=&quot;string&quot;&gt;&quot;content-type&quot;&lt;/span&gt; content=&lt;span class=&quot;string&quot;&gt;&quot;text/html;charset=utf-8&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;resp.setContentType(“text/html;charset=utf-8”);因为Servlet规范默认是使用ISO-8559-1编码，所以也需要设置编码格式，如下： &lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;request.setCharacterEncoding(&lt;span class=&quot;string&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;response.setContentType(&lt;span class=&quot;string&quot;&gt;&quot;text/html;charset=utf-8&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
-&lt;p&gt;值得注意的是:当你设置响应的编码格式是&lt;code&gt;utf-8&lt;/code&gt;，在&lt;code&gt;TCP/IP Monitor&lt;/code&gt;截获到的数据显示可能会乱码，为什么呢？这是因为一般本地&lt;code&gt;MyEclipse&lt;/code&gt;默认编码、解码格式是&lt;code&gt;gbk&lt;/code&gt;，当流向&lt;code&gt;MyEclipse&lt;/code&gt;界面输出的数据编码格式是&lt;code&gt;utf-8&lt;/code&gt;，那么解码后的数据就会出现乱码。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;一般的Java程序，文件流的默认编码格式是在&lt;code&gt;JVM&lt;/code&gt;刚启动的时候从本机系统配置文件读取的，这点也要记住！&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;因为Servlet规范默认是使用ISO-8559-1编码，所以也需要设置编码格式，如下：&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;request.setCharacterEncoding(&lt;span class=&quot;string&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;response.setContentType(&lt;span class=&quot;string&quot;&gt;&quot;text/html;charset=utf-8&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;值得注意的是:当你设置响应的编码格式是&lt;code&gt;utf-8&lt;/code&gt;，在&lt;code&gt;TCP/IP Monitor&lt;/code&gt;截获到的数据显示可能会乱码，为什么呢？这是因为一般本地&lt;code&gt;MyEclipse&lt;/code&gt;默认编码、解码格式是&lt;code&gt;gbk&lt;/code&gt;，当流向&lt;code&gt;MyEclipse&lt;/code&gt;界面输出的数据编码格式是&lt;code&gt;utf-8&lt;/code&gt;，那么解码后的数据就会出现乱码。&lt;br&gt;&amp;emsp;&amp;emsp;一般的Java程序，文件流的默认编码格式是在&lt;code&gt;JVM&lt;/code&gt;刚启动的时候从本机系统配置文件读取的，这点也要记住！&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;作者 &lt;a href=&quot;https://www.github.com/Res2013&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@Res2013&lt;/a&gt;&lt;br&gt;2016 年 05月 16日&lt;/p&gt;
 </content>
