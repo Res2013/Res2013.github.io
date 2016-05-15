@@ -5,7 +5,7 @@
   <link href="//atom.xml" rel="self"/>
   
   <link href="http://Res2013.github.io/"/>
-  <updated>2016-05-14T17:16:23.890Z</updated>
+  <updated>2016-05-15T17:35:53.318Z</updated>
   <id>http://Res2013.github.io/</id>
   
   <author>
@@ -14,6 +14,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>字符编码浅谈</title>
+    <link href="http://Res2013.github.io/2016/05/16/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%B5%85%E8%B0%88/"/>
+    <id>http://Res2013.github.io/2016/05/16/字符编码浅谈/</id>
+    <published>2016-05-15T17:27:18.000Z</published>
+    <updated>2016-05-15T17:35:53.318Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;为什么有字符编码&quot;&gt;&lt;a href=&quot;#为什么有字符编码&quot; class=&quot;headerlink&quot; title=&quot;为什么有字符编码?&quot;&gt;&lt;/a&gt;为什么有字符编码?&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能够处理。最早的时候只有127个大小写英文字母、数字和一些符号被编码到计算机里,称为&lt;code&gt;ASCII&lt;/code&gt;编码。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;什么是Unicode编码&quot;&gt;&lt;a href=&quot;#什么是Unicode编码&quot; class=&quot;headerlink&quot; title=&quot;什么是Unicode编码?&quot;&gt;&lt;/a&gt;什么是Unicode编码?&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;&lt;code&gt;Unicode&lt;/code&gt;编码也叫做统一码、万国码、单一码，是计算机科学领域里的一项业界标准，包括字符集、编码方案等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;为什么有Unicode编码&quot;&gt;&lt;a href=&quot;#为什么有Unicode编码&quot; class=&quot;headerlink&quot; title=&quot;为什么有Unicode编码?&quot;&gt;&lt;/a&gt;为什么有Unicode编码?&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;全世界有几千多种语言，如中文有自己制定的&lt;code&gt;GB2312&lt;/code&gt;编码，日文有&lt;code&gt;Shift_JIS&lt;/code&gt;编码等等，那么如果在多语言混合的文本中就会出现乱码。那么这个时候&lt;code&gt;Unicode&lt;/code&gt;编码应运而生，所有语言都统一使用同一套编码，这样就不会出现乱码问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;为什么有UTF-8编码&quot;&gt;&lt;a href=&quot;#为什么有UTF-8编码&quot; class=&quot;headerlink&quot; title=&quot;为什么有UTF-8编码?&quot;&gt;&lt;/a&gt;为什么有UTF-8编码?&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;虽然统一了编码格式，解决了乱码问题，但是新的问题又产生了，是什么呢?&lt;br&gt;&lt;code&gt;ASCII&lt;/code&gt;编码是1个字节，Unicode编码通常是2个字节，如下图所示:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字符&lt;/th&gt;
+&lt;th style=&quot;text-align:right&quot;&gt;ASCII&lt;/th&gt;
+&lt;th style=&quot;text-align:right&quot;&gt;Unicode&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;A&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;01000001&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;00000000 01000001&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;‘0’&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;00110000&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;00000000 00110000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;那么如果你所写的文本基本上是类似字符&lt;code&gt;A&lt;/code&gt;和字符&lt;code&gt;0&lt;/code&gt;这样的数据的话，使用&lt;code&gt;Unicode&lt;/code&gt;编码就会比&lt;code&gt;ASCII&lt;/code&gt;编码多出一倍的存储空间，在存储和传输上就会非常不划算。所以，此时”可变长编码”的&lt;code&gt;UTF-8&lt;/code&gt;编码应运而生。&lt;/p&gt;
+&lt;h2 id=&quot;通用字符编码工作方式&quot;&gt;&lt;a href=&quot;#通用字符编码工作方式&quot; class=&quot;headerlink&quot; title=&quot;通用字符编码工作方式&quot;&gt;&lt;/a&gt;通用字符编码工作方式&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;在计算机内存中，都统一使用&lt;code&gt;Unicode&lt;/code&gt;编码，当你需要保存数据到计算机硬盘或者需要通过网络传输出具的时候，就可以转换成&lt;code&gt;UTF-8&lt;/code&gt;编码。当你需要用编辑器编辑的时候，就可以把&lt;code&gt;UTF-8&lt;/code&gt;编码的字符转成&lt;code&gt;Unicode&lt;/code&gt;字符存到内存中&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;运用环境&quot;&gt;&lt;a href=&quot;#运用环境&quot; class=&quot;headerlink&quot; title=&quot;运用环境&quot;&gt;&lt;/a&gt;运用环境&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;例如:一般网页编程的时候会在&lt;code&gt;JSP&lt;/code&gt;页面添加：&lt;br&gt;&lt;figure class=&quot;highlight jsp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;meta http-equiv=&lt;span class=&quot;string&quot;&gt;&quot;content-type&quot;&lt;/span&gt; content=&lt;span class=&quot;string&quot;&gt;&quot;text/html;charset=utf-8&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;resp.setContentType(“text/html;charset=utf-8”);因为Servlet规范默认是使用ISO-8559-1编码，所以也需要设置编码格式，如下： &lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;request.setCharacterEncoding(&lt;span class=&quot;string&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;response.setContentType(&lt;span class=&quot;string&quot;&gt;&quot;text/html;charset=utf-8&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;值得注意的是:当你设置响应的编码格式是&lt;code&gt;utf-8&lt;/code&gt;，在&lt;code&gt;TCP/IP Monitor&lt;/code&gt;截获到的数据显示可能会乱码，为什么呢？这是因为一般本地&lt;code&gt;MyEclipse&lt;/code&gt;默认编码、解码格式是&lt;code&gt;gbk&lt;/code&gt;，当流向&lt;code&gt;MyEclipse&lt;/code&gt;界面输出的数据编码格式是&lt;code&gt;utf-8&lt;/code&gt;，那么解码后的数据就会出现乱码。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;一般的Java程序，文件流的默认编码格式是在&lt;code&gt;JVM&lt;/code&gt;刚启动的时候从本机系统配置文件读取的，这点也要记住！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;作者 &lt;a href=&quot;https://www.github.com/Res2013&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@Res2013&lt;/a&gt;&lt;br&gt;2016 年 05月 16日&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;为什么有字符编码&quot;&gt;&lt;a href=&quot;#为什么有字符编码&quot; class=&quot;headerlink&quot; title=&quot;为什么有字符编码?&quot;&gt;&lt;/a&gt;为什么有字符编码?&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能够处理。最早的时候只有127个大小写英文字母、数字和一些符号被编码到计算机里,称为&lt;code&gt;ASCII&lt;/code&gt;编码。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;什么是Unicode编码&quot;&gt;&lt;a href=&quot;#什么是Unicode编码&quot; class=&quot;headerlink&quot; title=&quot;什么是Unicode编码?&quot;&gt;&lt;/a&gt;什么是Unicode编码?&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;&lt;code&gt;Unicode&lt;/code&gt;编码也叫做统一码、万国码、单一码，是计算机科学领域里的一项业界标准，包括字符集、编码方案等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;为什么有Unicode编码&quot;&gt;&lt;a href=&quot;#为什么有Unicode编码&quot; class=&quot;headerlink&quot; title=&quot;为什么有Unicode编码?&quot;&gt;&lt;/a&gt;为什么有Unicode编码?&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;全世界有几千多种语言，如中文有自己制定的&lt;code&gt;GB2312&lt;/code&gt;编码，日文有&lt;code&gt;Shift_JIS&lt;/code&gt;编码等等，那么如果在多语言混合的文本中就会出现乱码。那么这个时候&lt;code&gt;Unicode&lt;/code&gt;编码应运而生，所有语言都统一使用同一套编码，这样就不会出现乱码问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="知识理解" scheme="http://Res2013.github.io/categories/%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/"/>
+    
+    
+      <category term="字符编码" scheme="http://Res2013.github.io/tags/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>像玉的石头</title>

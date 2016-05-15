@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title><![CDATA[字符编码浅谈]]></title>
+      <url>http://Res2013.github.io/2016/05/16/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%B5%85%E8%B0%88/</url>
+      <content type="html"><![CDATA[<h2 id="为什么有字符编码"><a href="#为什么有字符编码" class="headerlink" title="为什么有字符编码?"></a>为什么有字符编码?</h2><blockquote>
+<p>&emsp;&emsp;计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能够处理。最早的时候只有127个大小写英文字母、数字和一些符号被编码到计算机里,称为<code>ASCII</code>编码。</p>
+</blockquote>
+<h2 id="什么是Unicode编码"><a href="#什么是Unicode编码" class="headerlink" title="什么是Unicode编码?"></a>什么是Unicode编码?</h2><blockquote>
+<p>&emsp;&emsp;<code>Unicode</code>编码也叫做统一码、万国码、单一码，是计算机科学领域里的一项业界标准，包括字符集、编码方案等。</p>
+</blockquote>
+<h2 id="为什么有Unicode编码"><a href="#为什么有Unicode编码" class="headerlink" title="为什么有Unicode编码?"></a>为什么有Unicode编码?</h2><blockquote>
+<p>&emsp;&emsp;全世界有几千多种语言，如中文有自己制定的<code>GB2312</code>编码，日文有<code>Shift_JIS</code>编码等等，那么如果在多语言混合的文本中就会出现乱码。那么这个时候<code>Unicode</code>编码应运而生，所有语言都统一使用同一套编码，这样就不会出现乱码问题。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="为什么有UTF-8编码"><a href="#为什么有UTF-8编码" class="headerlink" title="为什么有UTF-8编码?"></a>为什么有UTF-8编码?</h2><blockquote>
+<p>&emsp;&emsp;虽然统一了编码格式，解决了乱码问题，但是新的问题又产生了，是什么呢?<br><code>ASCII</code>编码是1个字节，Unicode编码通常是2个字节，如下图所示:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th style="text-align:right">ASCII</th>
+<th style="text-align:right">Unicode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td style="text-align:right">01000001</td>
+<td style="text-align:right">00000000 01000001</td>
+</tr>
+<tr>
+<td>‘0’</td>
+<td style="text-align:right">00110000</td>
+<td style="text-align:right">00000000 00110000</td>
+</tr>
+</tbody>
+</table>
+<p>那么如果你所写的文本基本上是类似字符<code>A</code>和字符<code>0</code>这样的数据的话，使用<code>Unicode</code>编码就会比<code>ASCII</code>编码多出一倍的存储空间，在存储和传输上就会非常不划算。所以，此时”可变长编码”的<code>UTF-8</code>编码应运而生。</p>
+<h2 id="通用字符编码工作方式"><a href="#通用字符编码工作方式" class="headerlink" title="通用字符编码工作方式"></a>通用字符编码工作方式</h2><blockquote>
+<p>&emsp;&emsp;在计算机内存中，都统一使用<code>Unicode</code>编码，当你需要保存数据到计算机硬盘或者需要通过网络传输出具的时候，就可以转换成<code>UTF-8</code>编码。当你需要用编辑器编辑的时候，就可以把<code>UTF-8</code>编码的字符转成<code>Unicode</code>字符存到内存中</p>
+</blockquote>
+<h2 id="运用环境"><a href="#运用环境" class="headerlink" title="运用环境"></a>运用环境</h2><blockquote>
+<p>&emsp;&emsp;例如:一般网页编程的时候会在<code>JSP</code>页面添加：<br><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=<span class="string">"content-type"</span> content=<span class="string">"text/html;charset=utf-8"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>resp.setContentType(“text/html;charset=utf-8”);因为Servlet规范默认是使用ISO-8559-1编码，所以也需要设置编码格式，如下： </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">...</span><br><span class="line">response.setContentType(<span class="string">"text/html;charset=utf-8"</span>);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>值得注意的是:当你设置响应的编码格式是<code>utf-8</code>，在<code>TCP/IP Monitor</code>截获到的数据显示可能会乱码，为什么呢？这是因为一般本地<code>MyEclipse</code>默认编码、解码格式是<code>gbk</code>，当流向<code>MyEclipse</code>界面输出的数据编码格式是<code>utf-8</code>，那么解码后的数据就会出现乱码。</p>
+<p>&emsp;&emsp;一般的Java程序，文件流的默认编码格式是在<code>JVM</code>刚启动的时候从本机系统配置文件读取的，这点也要记住！</p>
+</blockquote>
+<p>作者 <a href="https://www.github.com/Res2013" target="_blank" rel="external">@Res2013</a><br>2016 年 05月 16日</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[像玉的石头]]></title>
       <url>http://Res2013.github.io/2016/05/15/%E5%83%8F%E7%8E%89%E7%9A%84%E7%9F%B3%E5%A4%B4/</url>
       <content type="html"><![CDATA[<p>你说相遇是休止符的前奏<br>你说结局是道不尽的悔疚<br>你说黑夜让人失声无法嘶吼<br>你说孤独让人沉溺忘了求救<br>我心弦易动音纷纷<br>后来都化成世间赞美的裂纹<br>直到恐惧布满诱人的全身<br>像玉的石头坚硬是不破碎的借口<br>美丽是赶不走的忧愁<br><a id="more"></a><br>你的笑是教人贪杯的毒酒<br>醉生梦死不过似是而非的出走<br>歇斯底里亦无人感同身受<br>粉身碎骨也许才最享受</p>
