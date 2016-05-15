@@ -106,7 +106,7 @@
 &amp;emsp;&amp;emsp;Unicode编码也叫做统一码、万国码、单一码，是计算机科学领域里的一项业界标准，包括字符集、编码方案等。
 
 为什么有Unicode编码?">
-<meta property="og:updated_time" content="2016-05-15T17:41:13.867Z">
+<meta property="og:updated_time" content="2016-05-15T17:44:48.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符编码浅谈">
 <meta name="twitter:description" content="为什么有字符编码?
@@ -398,7 +398,7 @@
 </table>
 <p>那么如果你所写的文本基本上是类似字符<code>A</code>和字符<code>0</code>这样的数据的话，使用<code>Unicode</code>编码就会比<code>ASCII</code>编码多出一倍的存储空间，在存储和传输上就会非常不划算。所以，此时”可变长编码”的<code>UTF-8</code>编码应运而生。</p>
 <h2 id="通用字符编码工作方式"><a href="#通用字符编码工作方式" class="headerlink" title="通用字符编码工作方式"></a>通用字符编码工作方式</h2><blockquote>
-<p>&emsp;&emsp;在计算机内存中，都统一使用<code>Unicode</code>编码，当你需要保存数据到计算机硬盘或者需要通过网络传输出具的时候，就可以转换成<code>UTF-8</code>编码。当你需要用编辑器编辑的时候，就可以把<code>UTF-8</code>编码的字符转成<code>Unicode</code>字符存到内存中</p>
+<p>&emsp;&emsp;在计算机内存中，都统一使用<code>Unicode</code>编码。当你需要保存数据到计算机硬盘或者需要通过网络传输数据的时候，就可以转换成<code>UTF-8</code>编码；当你需要用编辑器编辑的时候，就可以把<code>UTF-8</code>编码的字符转成<code>Unicode</code>字符存到内存中。</p>
 </blockquote>
 <h2 id="运用环境"><a href="#运用环境" class="headerlink" title="运用环境"></a>运用环境</h2><blockquote>
 <p>&emsp;&emsp;例如:一般网页编程的时候会在<code>JSP</code>页面添加：<br><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=<span class="string">"content-type"</span> content=<span class="string">"text/html;charset=utf-8"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
