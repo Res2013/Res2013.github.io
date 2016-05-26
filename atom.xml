@@ -4,9 +4,9 @@
   <subtitle>优秀不够!你是否无可替代?</subtitle>
   <link href="//atom.xml" rel="self"/>
   
-  <link href="http://Res2013.github.io/"/>
-  <updated>2016-05-16T17:06:50.029Z</updated>
-  <id>http://Res2013.github.io/</id>
+  <link href="http://Res2013.github.io/ss/"/>
+  <updated>2016-05-26T16:50:23.546Z</updated>
+  <id>http://Res2013.github.io/ss/</id>
   
   <author>
     <name>Res2013</name>
@@ -16,9 +16,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>RxAndroid入门(一)</title>
+    <link href="http://Res2013.github.io/ss/2016/05/26/RxAndroid%E5%85%A5%E9%97%A8(%E4%B8%80)/"/>
+    <id>http://Res2013.github.io/ss/2016/05/26/RxAndroid入门(一)/</id>
+    <published>2016-05-26T14:20:43.000Z</published>
+    <updated>2016-05-26T16:50:23.546Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;什么是RxAndroid？&quot;&gt;&lt;a href=&quot;#什么是RxAndroid？&quot; class=&quot;headerlink&quot; title=&quot;什么是RxAndroid？&quot;&gt;&lt;/a&gt;什么是RxAndroid？&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;&lt;code&gt;RxAndroid&lt;/code&gt;是基于响应式扩展框架&lt;a href=&quot;https://github.com/ReactiveX/RxJava&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RxJava&lt;/a&gt;的&lt;code&gt;Android&lt;/code&gt;实现。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;RxAndroid的优点？&quot;&gt;&lt;a href=&quot;#RxAndroid的优点？&quot; class=&quot;headerlink&quot; title=&quot;RxAndroid的优点？&quot;&gt;&lt;/a&gt;RxAndroid的优点？&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;&lt;a href=&quot;https://github.com/ReactiveX/RxAndroid&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RxAndroid&lt;/a&gt;将大量的类绑定到&lt;code&gt;RxJava&lt;/code&gt;，使得在&lt;code&gt;Android&lt;/code&gt;应用中编写响应式组件变得非常直观、简单。并且它可以优雅地处理异步请求，配合上&lt;a href=&quot;http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Lambda表达式&lt;/a&gt;尤其是当中的&lt;a href=&quot;http://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;方法引用&lt;/a&gt;，可以大大简化回调函数的处理，提高编码效率。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;如何在Android-Studio中使用？&quot;&gt;&lt;a href=&quot;#如何在Android-Studio中使用？&quot; class=&quot;headerlink&quot; title=&quot;如何在Android Studio中使用？&quot;&gt;&lt;/a&gt;如何在Android Studio中使用？&lt;/h2&gt;&lt;h3 id=&quot;在build-gradle中配置&quot;&gt;&lt;a href=&quot;#在build-gradle中配置&quot; class=&quot;headerlink&quot; title=&quot;在build.gradle中配置&quot;&gt;&lt;/a&gt;在build.gradle中配置&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;dependencies &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    compile &amp;apos;com.jakewharton:butterknife:7.0.1&amp;apos; // ButterKnife注解库&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    compile &amp;apos;io.reactivex:rxandroid:1.2.0&amp;apos; // RxAndroid&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    compile &amp;apos;io.reactivex:rxjava:1.1.5&amp;apos; // RxJava&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;在代码中使用&quot;&gt;&lt;a href=&quot;#在代码中使用&quot; class=&quot;headerlink&quot; title=&quot;在代码中使用&quot;&gt;&lt;/a&gt;在代码中使用&lt;/h3&gt;&lt;h4 id=&quot;创建一个观察者对象发出数据&quot;&gt;&lt;a href=&quot;#创建一个观察者对象发出数据&quot; class=&quot;headerlink&quot; title=&quot;创建一个观察者对象发出数据&quot;&gt;&lt;/a&gt;创建一个观察者对象发出数据&lt;/h4&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;* 这里指定了订阅者订阅的事件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;* 如果没有一个订阅者,则观察者不发送任何事件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Observable&amp;lt;String&amp;gt; mObservable = Observable.create(  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Observable.OnSubscribe&amp;lt;String&amp;gt;() &amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Subscriber&amp;lt;? &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; String&amp;gt; sub)&lt;/span&gt; &lt;/span&gt;&amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            sub.onNext(&lt;span class=&quot;string&quot;&gt;&quot;Hello World!&quot;&lt;/span&gt;);&lt;span class=&quot;comment&quot;&gt;// 发送事件  &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            sub.onCompleted();&lt;span class=&quot;comment&quot;&gt;// 完成事件  &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;指定一个线程来传递数据&quot;&gt;&lt;a href=&quot;#指定一个线程来传递数据&quot; class=&quot;headerlink&quot; title=&quot;指定一个线程来传递数据&quot;&gt;&lt;/a&gt;指定一个线程来传递数据&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;观察者&lt;code&gt;Observable&lt;/code&gt;发送数据给主线程&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mObservable.observeOn(AndroidSchedulers.mainThread());&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;观察者分发订阅的事件&quot;&gt;&lt;a href=&quot;#观察者分发订阅的事件&quot; class=&quot;headerlink&quot; title=&quot;观察者分发订阅的事件&quot;&gt;&lt;/a&gt;观察者分发订阅的事件&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;主线程把数据传递给订阅者&lt;code&gt;Subscriber&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mObservable.subscribe(mSubscriber1);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mobservable.subscribe(mSubscriber2);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;创建若干个订阅者处理数据&quot;&gt;&lt;a href=&quot;#创建若干个订阅者处理数据&quot; class=&quot;headerlink&quot; title=&quot;创建若干个订阅者处理数据&quot;&gt;&lt;/a&gt;创建若干个订阅者处理数据&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;订阅者最终处理数据。上面例子是主线程传递数据的，所以这里传递和接收的方式是同步的。其它很多时候传递、接收方式可以是异步的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Subscriber&amp;lt;String&amp;gt; mSubscriber1 = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Subscriber&amp;lt;String&amp;gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onNext&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String s)&lt;/span&gt; &lt;/span&gt;&amp;#123; mTvText.setText(s); &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onCompleted&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onError&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Throwable e)&lt;/span&gt; &lt;/span&gt;&amp;#123; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Subscriber&amp;lt;String&amp;gt; mSubscriber2 = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Subscriber&amp;lt;String&amp;gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onNext&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String s)&lt;/span&gt; &lt;/span&gt;&amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Toast.makeText(MainActivity.&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;, s,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            Toast.LENGTH_SHORT).show();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onCompleted&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onError&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Throwable e)&lt;/span&gt; &lt;/span&gt;&amp;#123; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;使用Lambda表达式重构代码&quot;&gt;&lt;a href=&quot;#使用Lambda表达式重构代码&quot; class=&quot;headerlink&quot; title=&quot;使用Lambda表达式重构代码&quot;&gt;&lt;/a&gt;使用Lambda表达式重构代码&lt;/h3&gt;&lt;h4 id=&quot;在build-gradle中配置-1&quot;&gt;&lt;a href=&quot;#在build-gradle中配置-1&quot; class=&quot;headerlink&quot; title=&quot;在build.gradle中配置&quot;&gt;&lt;/a&gt;在build.gradle中配置&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;&lt;code&gt;Gradle 2.1&lt;/code&gt;以上且安装&lt;code&gt;JDK8&lt;/code&gt;才可以如此使用&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;plugins &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    id &amp;quot;me.tatarka.retrolambda&amp;quot; version &amp;quot;3.2.4&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;android &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    compileOptions &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        sourceCompatibility JavaVersion.VERSION_1_8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        targetCompatibility JavaVersion.VERSION_1_8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;开始重构代码&quot;&gt;&lt;a href=&quot;#开始重构代码&quot; class=&quot;headerlink&quot; title=&quot;开始重构代码&quot;&gt;&lt;/a&gt;开始重构代码&lt;/h4&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Activity&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Bind&lt;/span&gt;(R.id.tv_text) TextView mTvText;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Bundle savedInstanceState)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;.onCreate(savedInstanceState);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        setContentView(R.layout.main);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ButterKnife.bind(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;/** &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        * 当方法参数和返回值与Lambda表达式相同时，可以使用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        * 方法名代替，这种就是更为简单的方法引用(References)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// 创建观察者&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Observable&amp;lt;String&amp;gt; observable = &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            Observable.create(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;::handOutEvent); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// 分发订阅事件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        observable.observeOn(AndroidSchedulers.mainThread());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        observable.subscribe(mTvText::setText);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        observable.subscribe(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;::showToast);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;handOutEvent&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Subscriber subscriber)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        subscriber.onNext(&lt;span class=&quot;string&quot;&gt;&quot;Hello World!&quot;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;// 发送事件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        subscriber.onCompleted(); &lt;span class=&quot;comment&quot;&gt;// 完成事件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 显示Toast&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;showToast&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String s)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Toast.makeText(MainActivity.&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;, s, &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            Toast.LENGTH_SHORT).show();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;作者 &lt;a href=&quot;https://www.github.com/Res2013&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@Res2013&lt;/a&gt;&lt;br&gt;2016 年 05月 26日&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;什么是RxAndroid？&quot;&gt;&lt;a href=&quot;#什么是RxAndroid？&quot; class=&quot;headerlink&quot; title=&quot;什么是RxAndroid？&quot;&gt;&lt;/a&gt;什么是RxAndroid？&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;&lt;code&gt;RxAndroid&lt;/code&gt;是基于响应式扩展框架&lt;a href=&quot;https://github.com/ReactiveX/RxJava&quot;&gt;RxJava&lt;/a&gt;的&lt;code&gt;Android&lt;/code&gt;实现。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;RxAndroid的优点？&quot;&gt;&lt;a href=&quot;#RxAndroid的优点？&quot; class=&quot;headerlink&quot; title=&quot;RxAndroid的优点？&quot;&gt;&lt;/a&gt;RxAndroid的优点？&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;&lt;a href=&quot;https://github.com/ReactiveX/RxAndroid&quot;&gt;RxAndroid&lt;/a&gt;将大量的类绑定到&lt;code&gt;RxJava&lt;/code&gt;，使得在&lt;code&gt;Android&lt;/code&gt;应用中编写响应式组件变得非常直观、简单。并且它可以优雅地处理异步请求，配合上&lt;a href=&quot;http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html&quot;&gt;Lambda表达式&lt;/a&gt;尤其是当中的&lt;a href=&quot;http://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html&quot;&gt;方法引用&lt;/a&gt;，可以大大简化回调函数的处理，提高编码效率。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Android开发框架" scheme="http://Res2013.github.io/ss/categories/Android%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="RxAndroid" scheme="http://Res2013.github.io/ss/tags/RxAndroid/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Eclipse下Android JNI开发方式之一</title>
-    <link href="http://Res2013.github.io/2016/05/17/Eclipse%E4%B8%8BAndroid-JNI%E5%BC%80%E5%8F%91%E6%96%B9%E5%BC%8F%E4%B9%8B%E4%B8%80/"/>
-    <id>http://Res2013.github.io/2016/05/17/Eclipse下Android-JNI开发方式之一/</id>
+    <link href="http://Res2013.github.io/ss/2016/05/17/Eclipse%E4%B8%8BAndroid-JNI%E5%BC%80%E5%8F%91%E6%96%B9%E5%BC%8F%E4%B9%8B%E4%B8%80/"/>
+    <id>http://Res2013.github.io/ss/2016/05/17/Eclipse下Android-JNI开发方式之一/</id>
     <published>2016-05-16T17:00:45.000Z</published>
     <updated>2016-05-16T17:06:50.029Z</updated>
     
@@ -50,19 +104,19 @@
     
     </summary>
     
-      <category term="Android开发" scheme="http://Res2013.github.io/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="http://Res2013.github.io/ss/categories/Android%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Android" scheme="http://Res2013.github.io/tags/Android/"/>
+      <category term="Android" scheme="http://Res2013.github.io/ss/tags/Android/"/>
     
-      <category term="JNI" scheme="http://Res2013.github.io/tags/JNI/"/>
+      <category term="JNI" scheme="http://Res2013.github.io/ss/tags/JNI/"/>
     
   </entry>
   
   <entry>
     <title>字符编码浅谈</title>
-    <link href="http://Res2013.github.io/2016/05/16/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%B5%85%E8%B0%88/"/>
-    <id>http://Res2013.github.io/2016/05/16/字符编码浅谈/</id>
+    <link href="http://Res2013.github.io/ss/2016/05/16/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%B5%85%E8%B0%88/"/>
+    <id>http://Res2013.github.io/ss/2016/05/16/字符编码浅谈/</id>
     <published>2016-05-15T17:27:18.000Z</published>
     <updated>2016-05-15T18:21:26.206Z</updated>
     
@@ -127,17 +181,17 @@
     
     </summary>
     
-      <category term="知识理解" scheme="http://Res2013.github.io/categories/%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/"/>
+      <category term="知识理解" scheme="http://Res2013.github.io/ss/categories/%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/"/>
     
     
-      <category term="字符编码" scheme="http://Res2013.github.io/tags/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/"/>
+      <category term="字符编码" scheme="http://Res2013.github.io/ss/tags/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/"/>
     
   </entry>
   
   <entry>
     <title>像玉的石头</title>
-    <link href="http://Res2013.github.io/2016/05/15/%E5%83%8F%E7%8E%89%E7%9A%84%E7%9F%B3%E5%A4%B4/"/>
-    <id>http://Res2013.github.io/2016/05/15/像玉的石头/</id>
+    <link href="http://Res2013.github.io/ss/2016/05/15/%E5%83%8F%E7%8E%89%E7%9A%84%E7%9F%B3%E5%A4%B4/"/>
+    <id>http://Res2013.github.io/ss/2016/05/15/像玉的石头/</id>
     <published>2016-05-14T17:12:34.000Z</published>
     <updated>2016-05-14T17:16:23.890Z</updated>
     
@@ -153,17 +207,17 @@
     
     </summary>
     
-      <category term="诗句欣赏" scheme="http://Res2013.github.io/categories/%E8%AF%97%E5%8F%A5%E6%AC%A3%E8%B5%8F/"/>
+      <category term="诗句欣赏" scheme="http://Res2013.github.io/ss/categories/%E8%AF%97%E5%8F%A5%E6%AC%A3%E8%B5%8F/"/>
     
     
-      <category term="诗句" scheme="http://Res2013.github.io/tags/%E8%AF%97%E5%8F%A5/"/>
+      <category term="诗句" scheme="http://Res2013.github.io/ss/tags/%E8%AF%97%E5%8F%A5/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建静态博客并部署到GitHub</title>
-    <link href="http://Res2013.github.io/2016/05/14/GitHub%E4%B8%8A%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://Res2013.github.io/2016/05/14/GitHub上用Hexo搭建静态博客/</id>
+    <link href="http://Res2013.github.io/ss/2016/05/14/GitHub%E4%B8%8A%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://Res2013.github.io/ss/2016/05/14/GitHub上用Hexo搭建静态博客/</id>
     <published>2016-05-14T03:38:57.000Z</published>
     <updated>2016-05-14T11:59:19.953Z</updated>
     
@@ -209,12 +263,12 @@
     
     </summary>
     
-      <category term="软件详细使用步骤" scheme="http://Res2013.github.io/categories/%E8%BD%AF%E4%BB%B6%E8%AF%A6%E7%BB%86%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4/"/>
+      <category term="软件详细使用步骤" scheme="http://Res2013.github.io/ss/categories/%E8%BD%AF%E4%BB%B6%E8%AF%A6%E7%BB%86%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4/"/>
     
     
-      <category term="Hexo" scheme="http://Res2013.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://Res2013.github.io/ss/tags/Hexo/"/>
     
-      <category term="Node.js" scheme="http://Res2013.github.io/tags/Node-js/"/>
+      <category term="Node.js" scheme="http://Res2013.github.io/ss/tags/Node-js/"/>
     
   </entry>
   
