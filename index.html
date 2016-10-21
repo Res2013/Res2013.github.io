@@ -282,6 +282,134 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/21/快速运行开源项目的正确方式/" itemprop="url">
+                  快速运行Android开源项目的正确方式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-21T20:52:00+08:00" content="2016-10-21">
+              2016-10-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/快速运行开源项目/" itemprop="url" rel="index">
+                    <span itemprop="name">快速运行开源项目</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/21/快速运行开源项目的正确方式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/21/快速运行开源项目的正确方式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="传统打开开源项目方式"><a href="#传统打开开源项目方式" class="headerlink" title="传统打开开源项目方式"></a>传统打开开源项目方式</h2><blockquote>
+<p>1.下载源码<br>2.打开Android Studio<br>3.导入项目<br>4.Sync gradle<br>5.运行项目<br>&emsp;&emsp;因为<code>Android Studio</code>很吃内存,启动需要费不少时间,且编译、运行更卡。如果我们仅仅是想得到apk看下效果而运行<code>Android Studio</code>那就太麻烦了,要是同时看多个项目要么就一个个工程切换,要么同时打开多个<code>Android Studio</code>窗口那更是卡的飞起啊。那有没有更好的方式呢,答案肯定是有的,请往下看!</p>
+</blockquote>
+<h2 id="快速的打开方式"><a href="#快速的打开方式" class="headerlink" title="快速的打开方式"></a>快速的打开方式</h2><blockquote>
+<p>&emsp;&emsp;下载<code>Android Studio</code>源码,利用<code>Android Studio</code>项目中内置的<code>gradle wrapper</code>来进行编译、打包、运行工程,大概流程如下:<br><code>Windows</code>系统采用如下方式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd projectDir // cd到工程的根目录下</span><br><span class="line">gradlew clean // 移除所有的编译输出文件,如apk</span><br><span class="line">gradlew build // 生成apk并执行lint检测编译</span><br></pre></td></tr></table></figure></p>
+<p>如果想编译、打包、安装一步操作完成,可以这么做:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd projectDir</span><br><span class="line">gradlew clean</span><br><span class="line">gradlew installDebug // 安装debug版apk</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/21/快速运行开源项目的正确方式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/26/RxAndroid入门(一)/" itemprop="url">
                   RxAndroid入门(一)
                 </a>
@@ -930,7 +1058,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -938,7 +1066,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -947,7 +1075,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
