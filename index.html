@@ -78,8 +78,6 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Herry博客" type="application/atom+xml" />
-
 
 
 
@@ -260,6 +258,132 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/06/24/抽象数据类型/" itemprop="url">
+                  如何抽象数据类型？
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-06-24T19:17:00+08:00" content="2018-06-24">
+              2018-06-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/编程思想/" itemprop="url" rel="index">
+                    <span itemprop="name">编程思想</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/06/24/抽象数据类型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/06/24/抽象数据类型/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><blockquote>
+<p>&emsp;&emsp;在编程的时候，我们应该根据所要解决的问题来设计合适的数据类型。</p>
+<p>&emsp;&emsp;类型具有两中信息：属性和操作。如：<code>int</code>类型的属性代表的是一个整数值，因此它们共享整数的属性，同时允许对<code>int</code>进行加、减、乘、除等操作，也仅能进行上述操作。</p>
+<p>&emsp;&emsp;<code>int</code>类型是一个非常抽象的整数概念，数学家已经用正式的抽象方式定义了整数的属性，而要实现这一抽象概念需要依赖于具体的语言。</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/06/24/抽象数据类型/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -538,136 +662,6 @@
             
               
                 
-                <a class="post-title-link" href="/2018/06/08/C++/C结构体对齐规则/" itemprop="url">
-                  C结构体对齐规则
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-06-08T22:43:00+08:00" content="2018-06-08">
-              2018-06-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2018/06/08/C++/C结构体对齐规则/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/06/08/C++/C结构体对齐规则/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
-<p>&emsp;&emsp;1. <strong>offsetof</strong>，用于求结构体中一个成员在该结构体中的偏移量</p>
-<p>&emsp;&emsp;2. <strong>alignof</strong>，用于求一个类型的对齐值</p>
-<p>&emsp;&emsp;3. <strong>sizeof</strong>，用于求一个变量或类型的大小</p>
-<p>&emsp;&emsp;4. 对于<strong>所有基本类型</strong>，<strong>alignof(T) == sizeof(T)</strong></p>
-</blockquote>
-<h2 id="结构体对齐规则"><a href="#结构体对齐规则" class="headerlink" title="结构体对齐规则"></a>结构体对齐规则</h2><blockquote>
-<p>&emsp;&emsp;1. 结构体变量中<strong>成员的偏移量</strong>必须是该<strong>成员类型对齐值</strong>的<strong>整数倍</strong>。否则，它与前一个成员变量之间要<strong>填充(padding)</strong>一些无意义的字节来满足<br>&emsp;&emsp;2. 结构体大小必须是其中<strong>所有成员类型</strong>中<strong>对齐值最大者</strong>的整数倍。否则，在最后一个成员后面<strong>填充(padding)</strong></p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/06/08/C++/C结构体对齐规则/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2018/06/08/Java基础/Proxy&Hook/" itemprop="url">
                   Proxy&Hook
                 </a>
@@ -748,6 +742,136 @@
 </blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/2018/06/08/Java基础/Proxy&Hook/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/06/08/C++/C结构体对齐规则/" itemprop="url">
+                  C结构体对齐规则
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-06-08T22:43:00+08:00" content="2018-06-08">
+              2018-06-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/06/08/C++/C结构体对齐规则/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/06/08/C++/C结构体对齐规则/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>&emsp;&emsp;1. <strong>offsetof</strong>，用于求结构体中一个成员在该结构体中的偏移量</p>
+<p>&emsp;&emsp;2. <strong>alignof</strong>，用于求一个类型的对齐值</p>
+<p>&emsp;&emsp;3. <strong>sizeof</strong>，用于求一个变量或类型的大小</p>
+<p>&emsp;&emsp;4. 对于<strong>所有基本类型</strong>，<strong>alignof(T) == sizeof(T)</strong></p>
+</blockquote>
+<h2 id="结构体对齐规则"><a href="#结构体对齐规则" class="headerlink" title="结构体对齐规则"></a>结构体对齐规则</h2><blockquote>
+<p>&emsp;&emsp;1. 结构体变量中<strong>成员的偏移量</strong>必须是该<strong>成员类型对齐值</strong>的<strong>整数倍</strong>。否则，它与前一个成员变量之间要<strong>填充(padding)</strong>一些无意义的字节来满足<br>&emsp;&emsp;2. 结构体大小必须是其中<strong>所有成员类型</strong>中<strong>对齐值最大者</strong>的整数倍。否则，在最后一个成员后面<strong>填充(padding)</strong></p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/06/08/C++/C结构体对齐规则/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1396,140 +1520,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/04/25/NDK开发/JNI知识点/" itemprop="url">
-                  JNI知识点
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-04-25T16:52:00+08:00" content="2018-04-25">
-              2018-04-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/NDK开发/" itemprop="url" rel="index">
-                    <span itemprop="name">NDK开发</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2018/04/25/NDK开发/JNI知识点/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/25/NDK开发/JNI知识点/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
-<p>Java JNI原意是Java Native Interface，它是为了方便Java调用C、C++等本地代码所封装的一层接口。</p>
-<p>NDK是Android所提供的一个工具集合，通过NDK可以在Android中更加方便地通过JNI来访问本地代码。</p>
-</blockquote>
-<h2 id="Native优缺点"><a href="#Native优缺点" class="headerlink" title="Native优缺点"></a>Native优缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><blockquote>
-<ol>
-<li>由于so库反编译比较困难，因此提高代码的安全性。</li>
-<li>可以方便地使用目前已有的C/C++开源库。</li>
-<li>方便移植到其它平台。</li>
-<li>在Native中创建的资源存在于Native Heap上，需要主动去释放它，对于应用而言没有OOM的问题，并且也不需要考虑GC时锁线程带来的掉帧。如Facebook的Fresco框架就是将图片缓存到Native Heap上。</li>
-<li>在Dalvik虚拟机中，会省去由JIT编译期转为本地代码的步骤</li>
-</ol>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/04/25/NDK开发/JNI知识点/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1575,7 +1565,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1583,7 +1573,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1592,7 +1582,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1600,13 +1590,6 @@
 
         </nav>
 
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
         
 
         <div class="links-of-author motion-element">

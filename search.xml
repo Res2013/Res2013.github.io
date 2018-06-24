@@ -4,6 +4,30 @@
   
     
     <entry>
+      <title><![CDATA[如何抽象数据类型？]]></title>
+      <url>http://Res2013.github.io/ss/2018/06/24/%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+      <content type="html"><![CDATA[<h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><blockquote>
+<p>&emsp;&emsp;在编程的时候，我们应该根据所要解决的问题来设计合适的数据类型。</p>
+<p>&emsp;&emsp;类型具有两中信息：属性和操作。如：<code>int</code>类型的属性代表的是一个整数值，因此它们共享整数的属性，同时允许对<code>int</code>进行加、减、乘、除等操作，也仅能进行上述操作。</p>
+<p>&emsp;&emsp;<code>int</code>类型是一个非常抽象的整数概念，数学家已经用正式的抽象方式定义了整数的属性，而要实现这一抽象概念需要依赖于具体的语言。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="建立抽象"><a href="#建立抽象" class="headerlink" title="建立抽象"></a>建立抽象</h2><blockquote>
+<p>&emsp;&emsp;假设现在需要解决一个问题，首先需要了解该问题的解决思路，然后根据需要抽象出该类型的属性以及相关操作。</p>
+</blockquote>
+<h2 id="建立接口"><a href="#建立接口" class="headerlink" title="建立接口"></a>建立接口</h2><blockquote>
+<p>&emsp;&emsp;根据具体的编程语言来描述抽象出的属性及其相关操作，接口设计尽量与抽象出的属性和操作描述一致，即是需要提供类中属性和操作的原型。这些作用于设计出的类型的函数相当于<code>int</code>类型的内置运算符。</p>
+</blockquote>
+<h2 id="使用接口"><a href="#使用接口" class="headerlink" title="使用接口"></a>使用接口</h2><blockquote>
+<p>&emsp;&emsp;根据建立的接口来编写程序，对于具体的实现细节是无感知的。</p>
+</blockquote>
+<h2 id="实现接口"><a href="#实现接口" class="headerlink" title="实现接口"></a>实现接口</h2><blockquote>
+<p>&emsp;&emsp;使用具体的编程语言来编写代码实现接口</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[设计模式]]></title>
       <url>http://Res2013.github.io/ss/2018/06/11/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
       <content type="html"><![CDATA[<h2 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h2><blockquote>
@@ -78,28 +102,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[C结构体对齐规则]]></title>
-      <url>http://Res2013.github.io/ss/2018/06/08/C++/C%E7%BB%93%E6%9E%84%E4%BD%93%E5%AF%B9%E9%BD%90%E8%A7%84%E5%88%99/</url>
-      <content type="html"><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
-<p>&emsp;&emsp;1. <strong>offsetof</strong>，用于求结构体中一个成员在该结构体中的偏移量</p>
-<p>&emsp;&emsp;2. <strong>alignof</strong>，用于求一个类型的对齐值</p>
-<p>&emsp;&emsp;3. <strong>sizeof</strong>，用于求一个变量或类型的大小</p>
-<p>&emsp;&emsp;4. 对于<strong>所有基本类型</strong>，<strong>alignof(T) == sizeof(T)</strong></p>
-</blockquote>
-<h2 id="结构体对齐规则"><a href="#结构体对齐规则" class="headerlink" title="结构体对齐规则"></a>结构体对齐规则</h2><blockquote>
-<p>&emsp;&emsp;1. 结构体变量中<strong>成员的偏移量</strong>必须是该<strong>成员类型对齐值</strong>的<strong>整数倍</strong>。否则，它与前一个成员变量之间要<strong>填充(padding)</strong>一些无意义的字节来满足<br>&emsp;&emsp;2. 结构体大小必须是其中<strong>所有成员类型</strong>中<strong>对齐值最大者</strong>的整数倍。否则，在最后一个成员后面<strong>填充(padding)</strong></p>
-</blockquote>
-<a id="more"></a>
-<p>举例说明：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">char</span> a;<span class="comment">// align : 1, sizeof : 1, offset : 0bytes</span></span><br><span class="line">  <span class="keyword">char</span> padding1[<span class="number">3</span>];<span class="comment">// 3bytes</span></span><br><span class="line">	<span class="keyword">float</span> b;<span class="comment">// align : 4, sizeof : 4, offset : 4bytes</span></span><br><span class="line">	<span class="keyword">int</span> c;<span class="comment">// align : 4, sizeof : 4, offset : 8bytes</span></span><br><span class="line">  <span class="keyword">char</span> padding2[<span class="number">4</span>];<span class="comment">// 4bytes</span></span><br><span class="line">	<span class="keyword">double</span> d;<span class="comment">// align : 8, sizeof : 8, offset : 16bytes</span></span><br><span class="line">	<span class="keyword">unsigned</span> e;<span class="comment">// align : 4, sizeof : 4, offset : 24bytes</span></span><br><span class="line">  <span class="keyword">char</span> padding3[<span class="number">4</span>];<span class="comment">// 4bytes</span></span><br><span class="line">&#125; T;<span class="comment">// align : 8, sizeof : 32bytes</span></span><br></pre></td></tr></table></figure></p>
-<p>解释如下：</p>
-<blockquote>
-<p>&emsp;&emsp;由<strong>第1条规则</strong>可知：成员<code>a</code>和<code>b</code>之间需要<code>padding</code>3个字节，成员<code>c</code>和<code>d</code>之间需要<code>padding</code>4个字节</p>
-<p>&emsp;&emsp;由<strong>第2条规则</strong>可知：成员<code>e</code>后面需要<code>padding</code>4个字节</p>
-</blockquote>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Proxy&Hook]]></title>
       <url>http://Res2013.github.io/ss/2018/06/08/Java%E5%9F%BA%E7%A1%80/Proxy&Hook/</url>
       <content type="html"><![CDATA[<h2 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h2><h3 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h3><blockquote>
@@ -141,6 +143,28 @@
 <p>&emsp;&emsp;1. 寻找Hook点，原则是静态变量或单例对象，且尽量Hook public修饰的对象和方法，public保证版本的兼容性，一般不需要适配。</p>
 <p>&emsp;&emsp;2. 选择合理的代理方式，如果是接口使用动态代理，如果是类可以利用多态并使用静态代理，也可以使用cglib库。</p>
 <p>&emsp;&emsp;3. 偷梁换柱—-使用反射将原始对象替换成代理对象。</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[C结构体对齐规则]]></title>
+      <url>http://Res2013.github.io/ss/2018/06/08/C++/C%E7%BB%93%E6%9E%84%E4%BD%93%E5%AF%B9%E9%BD%90%E8%A7%84%E5%88%99/</url>
+      <content type="html"><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>&emsp;&emsp;1. <strong>offsetof</strong>，用于求结构体中一个成员在该结构体中的偏移量</p>
+<p>&emsp;&emsp;2. <strong>alignof</strong>，用于求一个类型的对齐值</p>
+<p>&emsp;&emsp;3. <strong>sizeof</strong>，用于求一个变量或类型的大小</p>
+<p>&emsp;&emsp;4. 对于<strong>所有基本类型</strong>，<strong>alignof(T) == sizeof(T)</strong></p>
+</blockquote>
+<h2 id="结构体对齐规则"><a href="#结构体对齐规则" class="headerlink" title="结构体对齐规则"></a>结构体对齐规则</h2><blockquote>
+<p>&emsp;&emsp;1. 结构体变量中<strong>成员的偏移量</strong>必须是该<strong>成员类型对齐值</strong>的<strong>整数倍</strong>。否则，它与前一个成员变量之间要<strong>填充(padding)</strong>一些无意义的字节来满足<br>&emsp;&emsp;2. 结构体大小必须是其中<strong>所有成员类型</strong>中<strong>对齐值最大者</strong>的整数倍。否则，在最后一个成员后面<strong>填充(padding)</strong></p>
+</blockquote>
+<a id="more"></a>
+<p>举例说明：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">char</span> a;<span class="comment">// align : 1, sizeof : 1, offset : 0bytes</span></span><br><span class="line">  <span class="keyword">char</span> padding1[<span class="number">3</span>];<span class="comment">// 3bytes</span></span><br><span class="line">	<span class="keyword">float</span> b;<span class="comment">// align : 4, sizeof : 4, offset : 4bytes</span></span><br><span class="line">	<span class="keyword">int</span> c;<span class="comment">// align : 4, sizeof : 4, offset : 8bytes</span></span><br><span class="line">  <span class="keyword">char</span> padding2[<span class="number">4</span>];<span class="comment">// 4bytes</span></span><br><span class="line">	<span class="keyword">double</span> d;<span class="comment">// align : 8, sizeof : 8, offset : 16bytes</span></span><br><span class="line">	<span class="keyword">unsigned</span> e;<span class="comment">// align : 4, sizeof : 4, offset : 24bytes</span></span><br><span class="line">  <span class="keyword">char</span> padding3[<span class="number">4</span>];<span class="comment">// 4bytes</span></span><br><span class="line">&#125; T;<span class="comment">// align : 8, sizeof : 32bytes</span></span><br></pre></td></tr></table></figure></p>
+<p>解释如下：</p>
+<blockquote>
+<p>&emsp;&emsp;由<strong>第1条规则</strong>可知：成员<code>a</code>和<code>b</code>之间需要<code>padding</code>3个字节，成员<code>c</code>和<code>d</code>之间需要<code>padding</code>4个字节</p>
+<p>&emsp;&emsp;由<strong>第2条规则</strong>可知：成员<code>e</code>后面需要<code>padding</code>4个字节</p>
 </blockquote>
 ]]></content>
     </entry>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Res2013.github.io/ss/"/>
-  <updated>2018-06-24T09:02:30.855Z</updated>
+  <updated>2018-06-24T11:56:57.137Z</updated>
   <id>http://Res2013.github.io/ss/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何抽象数据类型？</title>
+    <link href="http://Res2013.github.io/ss/2018/06/24/%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    <id>http://Res2013.github.io/ss/2018/06/24/抽象数据类型/</id>
+    <published>2018-06-24T11:17:00.000Z</published>
+    <updated>2018-06-24T11:56:57.137Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;类型&quot;&gt;&lt;a href=&quot;#类型&quot; class=&quot;headerlink&quot; title=&quot;类型&quot;&gt;&lt;/a&gt;类型&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;在编程的时候，我们应该根据所要解决的问题来设计合适的数据类型。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;类型具有两中信息：属性和操作。如：&lt;code&gt;int&lt;/code&gt;类型的属性代表的是一个整数值，因此它们共享整数的属性，同时允许对&lt;code&gt;int&lt;/code&gt;进行加、减、乘、除等操作，也仅能进行上述操作。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;&lt;code&gt;int&lt;/code&gt;类型是一个非常抽象的整数概念，数学家已经用正式的抽象方式定义了整数的属性，而要实现这一抽象概念需要依赖于具体的语言。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;建立抽象&quot;&gt;&lt;a href=&quot;#建立抽象&quot; class=&quot;headerlink&quot; title=&quot;建立抽象&quot;&gt;&lt;/a&gt;建立抽象&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;假设现在需要解决一个问题，首先需要了解该问题的解决思路，然后根据需要抽象出该类型的属性以及相关操作。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;建立接口&quot;&gt;&lt;a href=&quot;#建立接口&quot; class=&quot;headerlink&quot; title=&quot;建立接口&quot;&gt;&lt;/a&gt;建立接口&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;根据具体的编程语言来描述抽象出的属性及其相关操作，接口设计尽量与抽象出的属性和操作描述一致，即是需要提供类中属性和操作的原型。这些作用于设计出的类型的函数相当于&lt;code&gt;int&lt;/code&gt;类型的内置运算符。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;使用接口&quot;&gt;&lt;a href=&quot;#使用接口&quot; class=&quot;headerlink&quot; title=&quot;使用接口&quot;&gt;&lt;/a&gt;使用接口&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;根据建立的接口来编写程序，对于具体的实现细节是无感知的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;实现接口&quot;&gt;&lt;a href=&quot;#实现接口&quot; class=&quot;headerlink&quot; title=&quot;实现接口&quot;&gt;&lt;/a&gt;实现接口&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;使用具体的编程语言来编写代码实现接口&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;类型&quot;&gt;&lt;a href=&quot;#类型&quot; class=&quot;headerlink&quot; title=&quot;类型&quot;&gt;&lt;/a&gt;类型&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;在编程的时候，我们应该根据所要解决的问题来设计合适的数据类型。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;类型具有两中信息：属性和操作。如：&lt;code&gt;int&lt;/code&gt;类型的属性代表的是一个整数值，因此它们共享整数的属性，同时允许对&lt;code&gt;int&lt;/code&gt;进行加、减、乘、除等操作，也仅能进行上述操作。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;&lt;code&gt;int&lt;/code&gt;类型是一个非常抽象的整数概念，数学家已经用正式的抽象方式定义了整数的属性，而要实现这一抽象概念需要依赖于具体的语言。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="编程思想" scheme="http://Res2013.github.io/ss/categories/%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/"/>
+    
+    
+      <category term="抽象类型" scheme="http://Res2013.github.io/ss/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%9E%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>设计模式</title>
@@ -134,54 +178,6 @@
   </entry>
   
   <entry>
-    <title>C结构体对齐规则</title>
-    <link href="http://Res2013.github.io/ss/2018/06/08/C++/C%E7%BB%93%E6%9E%84%E4%BD%93%E5%AF%B9%E9%BD%90%E8%A7%84%E5%88%99/"/>
-    <id>http://Res2013.github.io/ss/2018/06/08/C++/C结构体对齐规则/</id>
-    <published>2018-06-08T14:43:00.000Z</published>
-    <updated>2018-06-24T08:10:42.962Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;1. &lt;strong&gt;offsetof&lt;/strong&gt;，用于求结构体中一个成员在该结构体中的偏移量&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;2. &lt;strong&gt;alignof&lt;/strong&gt;，用于求一个类型的对齐值&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;3. &lt;strong&gt;sizeof&lt;/strong&gt;，用于求一个变量或类型的大小&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;4. 对于&lt;strong&gt;所有基本类型&lt;/strong&gt;，&lt;strong&gt;alignof(T) == sizeof(T)&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;结构体对齐规则&quot;&gt;&lt;a href=&quot;#结构体对齐规则&quot; class=&quot;headerlink&quot; title=&quot;结构体对齐规则&quot;&gt;&lt;/a&gt;结构体对齐规则&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;1. 结构体变量中&lt;strong&gt;成员的偏移量&lt;/strong&gt;必须是该&lt;strong&gt;成员类型对齐值&lt;/strong&gt;的&lt;strong&gt;整数倍&lt;/strong&gt;。否则，它与前一个成员变量之间要&lt;strong&gt;填充(padding)&lt;/strong&gt;一些无意义的字节来满足&lt;br&gt;&amp;emsp;&amp;emsp;2. 结构体大小必须是其中&lt;strong&gt;所有成员类型&lt;/strong&gt;中&lt;strong&gt;对齐值最大者&lt;/strong&gt;的整数倍。否则，在最后一个成员后面&lt;strong&gt;填充(padding)&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;举例说明：&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; a;&lt;span class=&quot;comment&quot;&gt;// align : 1, sizeof : 1, offset : 0bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; padding1[&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;];&lt;span class=&quot;comment&quot;&gt;// 3bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; b;&lt;span class=&quot;comment&quot;&gt;// align : 4, sizeof : 4, offset : 4bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; c;&lt;span class=&quot;comment&quot;&gt;// align : 4, sizeof : 4, offset : 8bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; padding2[&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;];&lt;span class=&quot;comment&quot;&gt;// 4bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;double&lt;/span&gt; d;&lt;span class=&quot;comment&quot;&gt;// align : 8, sizeof : 8, offset : 16bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;unsigned&lt;/span&gt; e;&lt;span class=&quot;comment&quot;&gt;// align : 4, sizeof : 4, offset : 24bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; padding3[&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;];&lt;span class=&quot;comment&quot;&gt;// 4bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125; T;&lt;span class=&quot;comment&quot;&gt;// align : 8, sizeof : 32bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;解释如下：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;由&lt;strong&gt;第1条规则&lt;/strong&gt;可知：成员&lt;code&gt;a&lt;/code&gt;和&lt;code&gt;b&lt;/code&gt;之间需要&lt;code&gt;padding&lt;/code&gt;3个字节，成员&lt;code&gt;c&lt;/code&gt;和&lt;code&gt;d&lt;/code&gt;之间需要&lt;code&gt;padding&lt;/code&gt;4个字节&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;由&lt;strong&gt;第2条规则&lt;/strong&gt;可知：成员&lt;code&gt;e&lt;/code&gt;后面需要&lt;code&gt;padding&lt;/code&gt;4个字节&lt;/p&gt;
-&lt;/blockquote&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;1. &lt;strong&gt;offsetof&lt;/strong&gt;，用于求结构体中一个成员在该结构体中的偏移量&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;2. &lt;strong&gt;alignof&lt;/strong&gt;，用于求一个类型的对齐值&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;3. &lt;strong&gt;sizeof&lt;/strong&gt;，用于求一个变量或类型的大小&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;4. 对于&lt;strong&gt;所有基本类型&lt;/strong&gt;，&lt;strong&gt;alignof(T) == sizeof(T)&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;结构体对齐规则&quot;&gt;&lt;a href=&quot;#结构体对齐规则&quot; class=&quot;headerlink&quot; title=&quot;结构体对齐规则&quot;&gt;&lt;/a&gt;结构体对齐规则&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;1. 结构体变量中&lt;strong&gt;成员的偏移量&lt;/strong&gt;必须是该&lt;strong&gt;成员类型对齐值&lt;/strong&gt;的&lt;strong&gt;整数倍&lt;/strong&gt;。否则，它与前一个成员变量之间要&lt;strong&gt;填充(padding)&lt;/strong&gt;一些无意义的字节来满足&lt;br&gt;&amp;emsp;&amp;emsp;2. 结构体大小必须是其中&lt;strong&gt;所有成员类型&lt;/strong&gt;中&lt;strong&gt;对齐值最大者&lt;/strong&gt;的整数倍。否则，在最后一个成员后面&lt;strong&gt;填充(padding)&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="C++" scheme="http://Res2013.github.io/ss/categories/C/"/>
-    
-    
-      <category term="结构体对齐" scheme="http://Res2013.github.io/ss/tags/%E7%BB%93%E6%9E%84%E4%BD%93%E5%AF%B9%E9%BD%90/"/>
-    
-      <category term="C++" scheme="http://Res2013.github.io/ss/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Proxy&amp;Hook</title>
     <link href="http://Res2013.github.io/ss/2018/06/08/Java%E5%9F%BA%E7%A1%80/Proxy&Hook/"/>
     <id>http://Res2013.github.io/ss/2018/06/08/Java基础/Proxy&Hook/</id>
@@ -248,6 +244,54 @@
     
     
       <category term="Proxy&Hook" scheme="http://Res2013.github.io/ss/tags/Proxy-Hook/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C结构体对齐规则</title>
+    <link href="http://Res2013.github.io/ss/2018/06/08/C++/C%E7%BB%93%E6%9E%84%E4%BD%93%E5%AF%B9%E9%BD%90%E8%A7%84%E5%88%99/"/>
+    <id>http://Res2013.github.io/ss/2018/06/08/C++/C结构体对齐规则/</id>
+    <published>2018-06-08T14:43:00.000Z</published>
+    <updated>2018-06-24T08:10:42.962Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;1. &lt;strong&gt;offsetof&lt;/strong&gt;，用于求结构体中一个成员在该结构体中的偏移量&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;2. &lt;strong&gt;alignof&lt;/strong&gt;，用于求一个类型的对齐值&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;3. &lt;strong&gt;sizeof&lt;/strong&gt;，用于求一个变量或类型的大小&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;4. 对于&lt;strong&gt;所有基本类型&lt;/strong&gt;，&lt;strong&gt;alignof(T) == sizeof(T)&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;结构体对齐规则&quot;&gt;&lt;a href=&quot;#结构体对齐规则&quot; class=&quot;headerlink&quot; title=&quot;结构体对齐规则&quot;&gt;&lt;/a&gt;结构体对齐规则&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;1. 结构体变量中&lt;strong&gt;成员的偏移量&lt;/strong&gt;必须是该&lt;strong&gt;成员类型对齐值&lt;/strong&gt;的&lt;strong&gt;整数倍&lt;/strong&gt;。否则，它与前一个成员变量之间要&lt;strong&gt;填充(padding)&lt;/strong&gt;一些无意义的字节来满足&lt;br&gt;&amp;emsp;&amp;emsp;2. 结构体大小必须是其中&lt;strong&gt;所有成员类型&lt;/strong&gt;中&lt;strong&gt;对齐值最大者&lt;/strong&gt;的整数倍。否则，在最后一个成员后面&lt;strong&gt;填充(padding)&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;举例说明：&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; a;&lt;span class=&quot;comment&quot;&gt;// align : 1, sizeof : 1, offset : 0bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; padding1[&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;];&lt;span class=&quot;comment&quot;&gt;// 3bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; b;&lt;span class=&quot;comment&quot;&gt;// align : 4, sizeof : 4, offset : 4bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; c;&lt;span class=&quot;comment&quot;&gt;// align : 4, sizeof : 4, offset : 8bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; padding2[&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;];&lt;span class=&quot;comment&quot;&gt;// 4bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;double&lt;/span&gt; d;&lt;span class=&quot;comment&quot;&gt;// align : 8, sizeof : 8, offset : 16bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;unsigned&lt;/span&gt; e;&lt;span class=&quot;comment&quot;&gt;// align : 4, sizeof : 4, offset : 24bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; padding3[&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;];&lt;span class=&quot;comment&quot;&gt;// 4bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125; T;&lt;span class=&quot;comment&quot;&gt;// align : 8, sizeof : 32bytes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;解释如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;由&lt;strong&gt;第1条规则&lt;/strong&gt;可知：成员&lt;code&gt;a&lt;/code&gt;和&lt;code&gt;b&lt;/code&gt;之间需要&lt;code&gt;padding&lt;/code&gt;3个字节，成员&lt;code&gt;c&lt;/code&gt;和&lt;code&gt;d&lt;/code&gt;之间需要&lt;code&gt;padding&lt;/code&gt;4个字节&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;由&lt;strong&gt;第2条规则&lt;/strong&gt;可知：成员&lt;code&gt;e&lt;/code&gt;后面需要&lt;code&gt;padding&lt;/code&gt;4个字节&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;1. &lt;strong&gt;offsetof&lt;/strong&gt;，用于求结构体中一个成员在该结构体中的偏移量&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;2. &lt;strong&gt;alignof&lt;/strong&gt;，用于求一个类型的对齐值&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;3. &lt;strong&gt;sizeof&lt;/strong&gt;，用于求一个变量或类型的大小&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;4. 对于&lt;strong&gt;所有基本类型&lt;/strong&gt;，&lt;strong&gt;alignof(T) == sizeof(T)&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;结构体对齐规则&quot;&gt;&lt;a href=&quot;#结构体对齐规则&quot; class=&quot;headerlink&quot; title=&quot;结构体对齐规则&quot;&gt;&lt;/a&gt;结构体对齐规则&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;1. 结构体变量中&lt;strong&gt;成员的偏移量&lt;/strong&gt;必须是该&lt;strong&gt;成员类型对齐值&lt;/strong&gt;的&lt;strong&gt;整数倍&lt;/strong&gt;。否则，它与前一个成员变量之间要&lt;strong&gt;填充(padding)&lt;/strong&gt;一些无意义的字节来满足&lt;br&gt;&amp;emsp;&amp;emsp;2. 结构体大小必须是其中&lt;strong&gt;所有成员类型&lt;/strong&gt;中&lt;strong&gt;对齐值最大者&lt;/strong&gt;的整数倍。否则，在最后一个成员后面&lt;strong&gt;填充(padding)&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="C++" scheme="http://Res2013.github.io/ss/categories/C/"/>
+    
+    
+      <category term="结构体对齐" scheme="http://Res2013.github.io/ss/tags/%E7%BB%93%E6%9E%84%E4%BD%93%E5%AF%B9%E9%BD%90/"/>
+    
+      <category term="C++" scheme="http://Res2013.github.io/ss/tags/C/"/>
     
   </entry>
   
@@ -995,32 +1039,6 @@
     
     
       <category term="字符编码" scheme="http://Res2013.github.io/ss/tags/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>像玉的石头</title>
-    <link href="http://Res2013.github.io/ss/2016/05/15/%E5%83%8F%E7%8E%89%E7%9A%84%E7%9F%B3%E5%A4%B4/"/>
-    <id>http://Res2013.github.io/ss/2016/05/15/像玉的石头/</id>
-    <published>2016-05-14T17:12:34.000Z</published>
-    <updated>2016-05-14T17:16:23.890Z</updated>
-    
-    <content type="html">&lt;p&gt;你说相遇是休止符的前奏&lt;br&gt;你说结局是道不尽的悔疚&lt;br&gt;你说黑夜让人失声无法嘶吼&lt;br&gt;你说孤独让人沉溺忘了求救&lt;br&gt;我心弦易动音纷纷&lt;br&gt;后来都化成世间赞美的裂纹&lt;br&gt;直到恐惧布满诱人的全身&lt;br&gt;像玉的石头坚硬是不破碎的借口&lt;br&gt;美丽是赶不走的忧愁&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;你的笑是教人贪杯的毒酒&lt;br&gt;醉生梦死不过似是而非的出走&lt;br&gt;歇斯底里亦无人感同身受&lt;br&gt;粉身碎骨也许才最享受&lt;/p&gt;
-&lt;p&gt;你说掌纹是解不开的魔咒&lt;br&gt;你说命运是没名字的情仇&lt;br&gt;你说拥抱让人温暖不敢奢求&lt;br&gt;你说疼痛让人麻木丢掉温柔&lt;br&gt;我心弦易动音纷纷&lt;br&gt;后来都化成世间赞美的裂纹&lt;br&gt;直到恐惧布满诱人的全身&lt;br&gt;像玉的石头&lt;br&gt;坚硬是不破碎的借口&lt;br&gt;美丽是赶不走的忧愁&lt;br&gt;你的笑是教人贪杯的毒酒&lt;br&gt;醉生梦死不过似是而非的出走&lt;br&gt;歇斯底里亦无人感同身受&lt;br&gt;粉身碎骨也许才最享受&lt;/p&gt;
-&lt;p&gt;像玉的石头&lt;br&gt;愿你远离恶言相向&lt;br&gt;愿你找回孤独一掷的疯狂&lt;br&gt;像玉的石头&lt;br&gt;愿你真实一如往常&lt;br&gt;愿你走在只属于你的路上&lt;br&gt;像玉的石头&lt;br&gt;愿你不再那么匆忙&lt;br&gt;愿你能有值得停留的家乡 &lt;/p&gt;
-&lt;p&gt;作者:不详&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;你说相遇是休止符的前奏&lt;br&gt;你说结局是道不尽的悔疚&lt;br&gt;你说黑夜让人失声无法嘶吼&lt;br&gt;你说孤独让人沉溺忘了求救&lt;br&gt;我心弦易动音纷纷&lt;br&gt;后来都化成世间赞美的裂纹&lt;br&gt;直到恐惧布满诱人的全身&lt;br&gt;像玉的石头坚硬是不破碎的借口&lt;br&gt;美丽是赶不走的忧愁&lt;br&gt;
-    
-    </summary>
-    
-      <category term="诗句欣赏" scheme="http://Res2013.github.io/ss/categories/%E8%AF%97%E5%8F%A5%E6%AC%A3%E8%B5%8F/"/>
-    
-    
-      <category term="诗句" scheme="http://Res2013.github.io/ss/tags/%E8%AF%97%E5%8F%A5/"/>
     
   </entry>
   
