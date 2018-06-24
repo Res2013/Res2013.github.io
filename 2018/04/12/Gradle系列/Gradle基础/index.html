@@ -1,0 +1,939 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Gradle基础," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Herry博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="领域对象
+Gradle只提供构建项目的框架，真正起作用的是Plugin。Gradle不仅引入了Task和Property还引入了Gradle项目的构建生命周期，常见的如Java Plugin和Android Plugin。
+Gradle本身的领域对象主要有Project和Task。Project为Task提供了执行上下文，所有的Plugin要么向Project中添加用于配置的Property，要么">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gradle基础">
+<meta property="og:url" content="http://Res2013.github.io/ss/2018/04/12/Gradle系列/Gradle基础/index.html">
+<meta property="og:site_name" content="Herry博客">
+<meta property="og:description" content="领域对象
+Gradle只提供构建项目的框架，真正起作用的是Plugin。Gradle不仅引入了Task和Property还引入了Gradle项目的构建生命周期，常见的如Java Plugin和Android Plugin。
+Gradle本身的领域对象主要有Project和Task。Project为Task提供了执行上下文，所有的Plugin要么向Project中添加用于配置的Property，要么">
+<meta property="og:updated_time" content="2018-06-24T09:15:48.745Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gradle基础">
+<meta name="twitter:description" content="领域对象
+Gradle只提供构建项目的框架，真正起作用的是Plugin。Gradle不仅引入了Task和Property还引入了Gradle项目的构建生命周期，常见的如Java Plugin和Android Plugin。
+Gradle本身的领域对象主要有Project和Task。Project为Task提供了执行上下文，所有的Plugin要么向Project中添加用于配置的Property，要么">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 2739868452,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Gradle基础 | Herry博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?1932fba01582fea3894d2d7b8390bbdb";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Herry博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一年一年不是人生，一念一念才是人生！</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Gradle基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-12T21:26:00+08:00" content="2018-04-12">
+              2018-04-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Gradle系列/" itemprop="url" rel="index">
+                    <span itemprop="name">Gradle系列</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/04/12/Gradle系列/Gradle基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/12/Gradle系列/Gradle基础/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="领域对象"><a href="#领域对象" class="headerlink" title="领域对象"></a>领域对象</h2><blockquote>
+<p><code>Gradle</code>只提供构建项目的框架，真正起作用的是<code>Plugin</code>。<code>Gradle</code>不仅引入了<code>Task</code>和<code>Property</code>还引入了<code>Gradle</code>项目的构建生命周期，常见的如<code>Java Plugin</code>和<code>Android Plugin</code>。</p>
+<p><code>Gradle</code>本身的领域对象主要有<code>Project</code>和<code>Task</code>。<code>Project</code>为<code>Task</code>提供了执行上下文，所有的<code>Plugin</code>要么向<code>Project</code>中添加用于配置的<code>Property</code>，要么向<code>Project</code>中添加不同的<code>Task</code>。一个<code>Task</code>表示一个逻辑上较为独立的执行过程。</p>
+<p>在没有显示指定调用对象的情况下，<code>Gradle</code>会自动将调用对象设置成当前<code>Project</code>。具体使用，请查看文档<code>Project</code>类的方法。</p>
+</blockquote>
+<h2 id="任务-Task"><a href="#任务-Task" class="headerlink" title="任务(Task)"></a>任务(<strong>Task</strong>)</h2><a id="more"></a>
+<h3 id="查看任务"><a href="#查看任务" class="headerlink" title="查看任务"></a>查看任务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradlew tasks</span><br></pre></td></tr></table></figure>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><blockquote>
+<p><code>&lt;&lt;</code>相当于<code>doLast</code>，<code>&gt;&gt;</code>相当于<code>doFirst</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">project.task(&apos;showTime&apos;) &#123;// 任务</span><br><span class="line">            doLast &#123;</span><br><span class="line">                println &quot;Current time is &quot; + new Date().format(project.dateAndTime.timeFormat)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">project.tasks.create(&apos;showDate&apos;) &#123;// 任务</span><br><span class="line">            doLast &#123;</span><br><span class="line">                println &quot;Current date is &quot; + new Date().format(project.dateAndTime.dateFormat)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><blockquote>
+<p>默认类型是<code>DefaultTask</code>，也可以定义一个<code>Task</code>时的默认类型，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">task copyFile(type: Copy) &#123;// 相对于当前Project，即build.gralde所在目录</span><br><span class="line">    from &apos;src&apos;</span><br><span class="line">    into &apos;dest&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="输入和输出类型"><a href="#输入和输出类型" class="headerlink" title="输入和输出类型"></a>输入和输出类型</h4><blockquote>
+<p>每个<code>Task</code>都有<code>inputs</code>和<code>outputs</code>属性，他们的类型分别为<code>TaskInputs</code>和<code>TaskOutputs</code>。输入和输出可以是文件也可以是文件夹，还可以是<code>Project</code>的某个<code>Property</code>或闭包所定义的条件。</p>
+<p>对于<code>outputs</code>我们可以使用<code>upToDateWhen()</code>方法来决定一个<code>Task</code>的<code>outputs</code>是否为最新的。这也是<code>Gradle</code>中的增量式构建的机制。</p>
+<p>Task执行时出现<code>UP-TO-DATE</code>代表它是最新的，不会重新执行。</p>
+</blockquote>
+<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><blockquote>
+<p>执行<code>taskA</code>时，<code>Gradle</code>会先执行<code>taskB</code>，再执行<code>taskA</code>。</p>
+<p>显示指定<code>Module</code>所有依赖<code>gradlew :app:dependencies</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">task taskA(dependsOn: taskB) &#123;// 1st dep</span><br><span class="line">   // do sth</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">task taskA &lt;&lt; &#123;// 2nd dep</span><br><span class="line">    println &apos;hello world&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">taskA.dependsOn taskB</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="创建Task"><a href="#创建Task" class="headerlink" title="创建Task"></a>创建Task</h3><blockquote>
+<ol>
+<li>调用<code>Project</code>的<code>task()</code>方法创建</li>
+<li>通过<code>TaskContainer</code>的<code>create()</code>方法创建</li>
+</ol>
+<p>对于每一个<code>Task</code>，<code>Gradle</code>都会在<code>Project</code>中创建一个同名的<code>Property</code>，我们可以把<code>Task</code>当做<code>Property</code>来访问。另外，<code>Gradle</code>也会创建一个同名的方法。该方法接受一个闭包参数，可以用来配置<code>Task</code>。</p>
+</blockquote>
+<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tasks.create(name: &apos;taskC&apos;) &lt;&lt; &#123;</span><br><span class="line">    println &apos;Hello world!&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="配置Task"><a href="#配置Task" class="headerlink" title="配置Task"></a>配置Task</h3><blockquote>
+<p><code>Task</code>除了执行操作，还可以包含多个<code>Property</code>，如默认定义的<code>description</code>、<code>logger</code>等。特定的<code>Task</code>类型还包含特定的<code>Property</code>，如<code>Copy</code>类型的<code>from</code>和<code>to</code>等。当然也可以动态地向<code>Task</code>中加入额外的<code>Property</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">task taskA &lt;&lt; &#123;</span><br><span class="line">    description = &quot;this is taskA&quot;</span><br><span class="line">    println description</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">task taskB &lt;&lt; &#123;</span><br><span class="line">    println description</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">taskB &#123;</span><br><span class="line">    description = &quot;this is taskB&quot;// 配置阶段Gradle框架会扫描整个build.gradle然后设置description，执行阶段就可以正常输出了</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">task taskC &lt;&lt; &#123;</span><br><span class="line">    println description</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">taskC.configure &#123;// 通过configure()方法完成配置</span><br><span class="line">    description = &quot;this is taskC&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><blockquote>
+<p>所有的<code>Task</code>都位于<code>Project</code>的<code>TaskContainer</code>中，<code>TaskContainer</code>就是<code>Project</code>中的<code>tasks</code>属性</p>
+</blockquote>
+<h2 id="属性-Property"><a href="#属性-Property" class="headerlink" title="属性(Property)"></a>属性(<strong>Property</strong>)</h2><h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradlew properties</span><br></pre></td></tr></table></figure>
+<h3 id="内置属性"><a href="#内置属性" class="headerlink" title="内置属性"></a>内置属性</h3><blockquote>
+<ol>
+<li><code>project</code>：<code>Project</code>本身</li>
+<li><code>name</code>：<code>Project</code>名字</li>
+<li><code>path</code>：<code>Project</code>的绝对路径</li>
+<li><code>description</code>：<code>Project</code>的描述信息，<code>Task</code>的描述信息</li>
+<li><code>buildDir</code>：<code>Project</code>构建结果存放目录</li>
+<li><code>version</code>：<code>Project</code>版本号</li>
+</ol>
+</blockquote>
+<h3 id="自定义Property"><a href="#自定义Property" class="headerlink" title="自定义Property"></a>自定义Property</h3><h4 id="gradle文件中定义"><a href="#gradle文件中定义" class="headerlink" title="gradle文件中定义"></a>gradle文件中定义</h4><blockquote>
+<p>build.gradle中向Project添加额外的Property时，需要通过ext来定义。如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ext.propertyA = &apos;this is propertyA&apos;</span><br><span class="line"></span><br><span class="line">ext &#123;</span><br><span class="line">    propertyB = &apos;this is propertyB&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="命令行参数定义Property"><a href="#命令行参数定义Property" class="headerlink" title="命令行参数定义Property"></a>命令行参数定义Property</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">task showCmdProperty &lt;&lt; &#123;</span><br><span class="line">    println testA</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">// -P设置Property，字符串使用双引号否则报错</span><br><span class="line">gradlew -PtestA=&quot;this is testA which is custom property&quot; showCmdProperty</span><br></pre></td></tr></table></figure>
+<h4 id="JVM系统参数定义Property"><a href="#JVM系统参数定义Property" class="headerlink" title="JVM系统参数定义Property"></a>JVM系统参数定义Property</h4><blockquote>
+<p><code>Java</code>中可以通过<code>-D</code>参数定义<strong>JVM</strong>系统参数，然后在代码中通过<strong>System.getProperty()</strong>获取系统参数。<code>Gradle</code>中可以通过加上<strong>-Dorg.gradle.project前缀</strong>设置<code>Property</code>。示例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">task showCmdProperty &lt;&lt; &#123;</span><br><span class="line">    println testB</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">gradlew -Dorg.gradle.project.testB=&quot;this is testB property&quot; showCmdProperty</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="环境变量中定义Property"><a href="#环境变量中定义Property" class="headerlink" title="环境变量中定义Property"></a>环境变量中定义Property</h4><blockquote>
+<p>在定义环境变量时，每个Property都需要以<strong>ORG_GRADLE<em>PROJECT</em></strong>为前缀，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">task showCmdProperty &lt;&lt; &#123;</span><br><span class="line">    println testC</span><br><span class="line">&#125;</span><br><span class="line">export ORG_GRADLE_PROJECT_testC=&quot;this is testC property&quot; showCmdProperty</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="扩展-Extension"><a href="#扩展-Extension" class="headerlink" title="扩展(Extension)"></a>扩展(<strong>Extension</strong>)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dateAndTime &#123;// 扩展</span><br><span class="line">    timeFormat = &apos;HH:mm:ss.SSS&apos;</span><br><span class="line">    dateFormat = &apos;MM/dd/yyyy&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="插件-Plugin"><a href="#插件-Plugin" class="headerlink" title="插件(Plugin)"></a>插件(<strong>Plugin</strong>)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class DateAndTimePlugin implements Plugin&lt;Project&gt; &#123;</span><br><span class="line">    void apply(Project project) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="类-Class"><a href="#类-Class" class="headerlink" title="类(Class)"></a>类(<strong>Class</strong>)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class DateAndTimePluginExtension &#123;</span><br><span class="line">    String timeFormat = &apos;MM/dd/yyyHH:mm:ss.SSS&apos;</span><br><span class="line">    String dateFormat = &apos;yyyy-MM-dd&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="委托-Delegate-机制"><a href="#委托-Delegate-机制" class="headerlink" title="委托(Delegate)机制"></a>委托(<strong>Delegate</strong>)机制</h3><blockquote>
+<p><code>Groovy Bean</code>对象直接访问属性的时候，<code>Groovy</code>会<strong>隐式</strong>动态地为属性创建<strong>getter</strong>和<strong>setter</strong>方法，示例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Dog &#123;</span><br><span class="line">    private String name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Animal &#123;</span><br><span class="line">    Dog dog = new Dog()</span><br><span class="line"></span><br><span class="line">    void config(Closure closure) &#123;</span><br><span class="line">        closure.delegate = dog// 委托给dog</span><br><span class="line">        closure.setResolveStrategy Closure.DELEGATE_FIRST// 设置delegate优先，默认owner优先</span><br><span class="line">        closure()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">def animal = new Anima()</span><br><span class="line">animal.config &#123;</span><br><span class="line">    name = &quot;Husky&quot;</span><br><span class="line">&#125;</span><br><span class="line">println animal.dog.name</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="常见的使用场景"><a href="#常见的使用场景" class="headerlink" title="常见的使用场景"></a>常见的使用场景</h4><blockquote>
+<ol>
+<li><code>project.configure()</code>，委托给<code>ConfigurationContainer</code></li>
+<li><code>project.configure(Object obj, Closure confClosure)</code>，委托给<code>Object</code></li>
+<li><code>project.dependencies()</code>，委托给<code>DependencyHandler</code></li>
+</ol>
+</blockquote>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>委托机制可以使我们将一个闭包中的执行代码作用对象设置成任意其它对象</p>
+</blockquote>
+<h2 id="Android-Plugin"><a href="#Android-Plugin" class="headerlink" title="Android Plugin"></a>Android Plugin</h2><h3 id="配置sourceSets"><a href="#配置sourceSets" class="headerlink" title="配置sourceSets"></a>配置sourceSets</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sourceSets &#123;</span><br><span class="line">    main &#123;</span><br><span class="line">        res.srcDirs = [&apos;src/main/res&apos;, &apos;src/main/res-respkg&apos;]</span><br><span class="line">        jniLibs.srcDirs = [&apos;libs&apos;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="创建新的SourceSet"><a href="#创建新的SourceSet" class="headerlink" title="创建新的SourceSet"></a>创建新的SourceSet</h3><blockquote>
+<p>默认情况下，custom所对应的Android源文件目录被Gradle框架设置为<code>${path-to-project}/src/customSet/java</code>，资源文件目录则会设置为<code>${path-to-project}/src/customSet/resources</code></p>
+<p>Gradle自动地为每一个创建的sourceSet创建相应的Task。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sourceSets &#123;</span><br><span class="line">    customSet</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="依赖自定义SourceSet"><a href="#依赖自定义SourceSet" class="headerlink" title="依赖自定义SourceSet"></a>依赖自定义SourceSet</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 1st，main中task先依赖于customSet中的Task</span><br><span class="line">classes.dependsOn customSetClasses</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">// 2nd，customSet生成的class文件放到main的classpath下</span><br><span class="line">sourceSets &#123;</span><br><span class="line">    main &#123;</span><br><span class="line">        compileClasspath = compileClasspath + files(customSet.output.classesDir)</span><br><span class="line">    &#125;</span><br><span class="line">    test &#123;</span><br><span class="line">        runtimeClasspath = runtimeClasspath + files(customSet.output.classesDir)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="配置-Configurations"><a href="#配置-Configurations" class="headerlink" title="配置(Configurations)"></a>配置(<strong>Configurations</strong>)</h2><blockquote>
+<p>Gradle将依赖分组，编译和运行时使用不同的依赖，每组依赖称为一个Configuration。在声明依赖时，我们实际上是在设置不同的Configuration。</p>
+</blockquote>
+<h3 id="插件中定义的Configuration"><a href="#插件中定义的Configuration" class="headerlink" title="插件中定义的Configuration"></a>插件中定义的Configuration</h3><blockquote>
+<ol>
+<li><code>Java Plugin</code>定义了名为<code>compile</code>和<code>testCompile</code>的<code>Configuration</code></li>
+<li><code>Android Plugin</code>定义了名为<code>androidTestCompile</code>的<code>Configuration</code>  </li>
+</ol>
+</blockquote>
+<h3 id="自定义Configuration"><a href="#自定义Configuration" class="headerlink" title="自定义Configuration"></a>自定义Configuration</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">configurations &#123;</span><br><span class="line">    myDepency</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    myDepency &apos;com.squareup.okhttp:okhttp:2.4.0&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">task showMyDepency &lt;&lt; &#123;</span><br><span class="line">    configurations.myDepency.asPath</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创知识分享，您的支持将鼓励我继续创作!</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/weixin.png" alt="Herry WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/ali.png" alt="Herry Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Gradle基础/" rel="tag">#Gradle基础</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/12/Java基础/Java源码分析/" rel="next" title="Java源码分析">
+                <i class="fa fa-chevron-left"></i> Java源码分析
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/25/NDK开发/JNI知识点/" rel="prev" title="JNI知识点">
+                JNI知识点 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2018/04/12/Gradle系列/Gradle基础/"
+           data-title="Gradle基础" data-url="http://Res2013.github.io/ss/2018/04/12/Gradle系列/Gradle基础/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.png"
+               alt="Herry" />
+          <p class="site-author-name" itemprop="name">Herry</p>
+          <p class="site-description motion-element" itemprop="description">Nothing Gold Can Stay</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Res2013" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/chamingfairy" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#领域对象"><span class="nav-number">1.</span> <span class="nav-text">领域对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务-Task"><span class="nav-number">2.</span> <span class="nav-text">任务(Task)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看任务"><span class="nav-number">2.1.</span> <span class="nav-text">查看任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-number">2.2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型"><span class="nav-number">2.3.</span> <span class="nav-text">类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入和输出类型"><span class="nav-number">2.3.1.</span> <span class="nav-text">输入和输出类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖"><span class="nav-number">2.4.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Task"><span class="nav-number">2.5.</span> <span class="nav-text">创建Task</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Task"><span class="nav-number">2.6.</span> <span class="nav-text">配置Task</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后续"><span class="nav-number">2.7.</span> <span class="nav-text">后续</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性-Property"><span class="nav-number">3.</span> <span class="nav-text">属性(Property)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看"><span class="nav-number">3.1.</span> <span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置属性"><span class="nav-number">3.2.</span> <span class="nav-text">内置属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义Property"><span class="nav-number">3.3.</span> <span class="nav-text">自定义Property</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#gradle文件中定义"><span class="nav-number">3.3.1.</span> <span class="nav-text">gradle文件中定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令行参数定义Property"><span class="nav-number">3.3.2.</span> <span class="nav-text">命令行参数定义Property</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM系统参数定义Property"><span class="nav-number">3.3.3.</span> <span class="nav-text">JVM系统参数定义Property</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境变量中定义Property"><span class="nav-number">3.3.4.</span> <span class="nav-text">环境变量中定义Property</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展-Extension"><span class="nav-number">4.</span> <span class="nav-text">扩展(Extension)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件-Plugin"><span class="nav-number">5.</span> <span class="nav-text">插件(Plugin)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类-Class"><span class="nav-number">6.</span> <span class="nav-text">类(Class)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">7.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#委托-Delegate-机制"><span class="nav-number">7.1.</span> <span class="nav-text">委托(Delegate)机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的使用场景"><span class="nav-number">7.1.1.</span> <span class="nav-text">常见的使用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">7.1.2.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-Plugin"><span class="nav-number">8.</span> <span class="nav-text">Android Plugin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置sourceSets"><span class="nav-number">8.1.</span> <span class="nav-text">配置sourceSets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建新的SourceSet"><span class="nav-number">8.2.</span> <span class="nav-text">创建新的SourceSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖自定义SourceSet"><span class="nav-number">8.3.</span> <span class="nav-text">依赖自定义SourceSet</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-Configurations"><span class="nav-number">9.</span> <span class="nav-text">配置(Configurations)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#插件中定义的Configuration"><span class="nav-number">9.1.</span> <span class="nav-text">插件中定义的Configuration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义Configuration"><span class="nav-number">9.2.</span> <span class="nav-text">自定义Configuration</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Herry</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"res2013"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="//cdn.jsdelivr.net/ua-parser.js/0.7.10/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+
+</body>
+</html>

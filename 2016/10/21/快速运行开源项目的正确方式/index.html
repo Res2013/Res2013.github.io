@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Herry博客">
 <meta property="og:description" content="传统打开开源项目方式
 1.下载源码2.打开Android Studio3.导入项目4.Sync gradle5.运行项目&amp;emsp;&amp;emsp;因为Android Studio很吃内存,启动需要费不少时间,且编译、运行更卡。如果我们仅仅是想得到apk看下效果而运行Android Studio那就太麻烦了,要是同时看多个项目要么就一个个工程切换,要么同时打开多个Android Studio窗口那更是">
-<meta property="og:updated_time" content="2018-06-24T03:31:23.541Z">
+<meta property="og:updated_time" content="2018-06-24T09:12:38.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速运行Android开源项目的正确方式">
 <meta name="twitter:description" content="传统打开开源项目方式
@@ -352,11 +352,11 @@
         <h2 id="传统打开开源项目方式"><a href="#传统打开开源项目方式" class="headerlink" title="传统打开开源项目方式"></a>传统打开开源项目方式</h2><blockquote>
 <p>1.下载源码<br>2.打开Android Studio<br>3.导入项目<br>4.Sync gradle<br>5.运行项目<br>&emsp;&emsp;因为<code>Android Studio</code>很吃内存,启动需要费不少时间,且编译、运行更卡。如果我们仅仅是想得到apk看下效果而运行<code>Android Studio</code>那就太麻烦了,要是同时看多个项目要么就一个个工程切换,要么同时打开多个<code>Android Studio</code>窗口那更是卡的飞起啊。那有没有更好的方式呢,答案肯定是有的,请往下看!</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="快速的打开方式"><a href="#快速的打开方式" class="headerlink" title="快速的打开方式"></a>快速的打开方式</h2><blockquote>
 <p>&emsp;&emsp;下载<code>Android Studio</code>源码,利用<code>Android Studio</code>项目中内置的<code>gradle wrapper</code>来进行编译、打包、运行工程,大概流程如下:<br><code>Windows</code>系统采用如下方式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd projectDir // cd到工程的根目录下</span><br><span class="line">gradlew clean // 移除所有的编译输出文件,如apk</span><br><span class="line">gradlew build // 生成apk并执行lint检测编译</span><br></pre></td></tr></table></figure></p>
 <p>如果想编译、打包、安装一步操作完成,可以这么做:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd projectDir</span><br><span class="line">gradlew clean</span><br><span class="line">gradlew installDebug // 安装debug版apk</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<a id="more"></a>
 <h2 id="更快速的运行Github上源码的方式"><a href="#更快速的运行Github上源码的方式" class="headerlink" title="更快速的运行Github上源码的方式"></a>更快速的运行Github上源码的方式</h2><blockquote>
 <p>你只需要安装这么一个工具,就可以一”键”下载、编译、打包、运行。该工具地址为:<br><a href="https://github.com/cesarferreira/dryrun" target="_blank" rel="external">https://github.com/cesarferreira/dryrun</a><br>安装该工具之后只需要执行一句命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dryrun https://github.com/cesarferreira/android-helloworld</span><br></pre></td></tr></table></figure></p>
 </blockquote>
@@ -430,8 +430,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/24/Android/OkHttp加解密拦截器/" rel="prev" title="OkHttp加解密拦截器">
-                OkHttp加解密拦截器 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/01/Gradle系列/发布带source和javadoc的aar包/" rel="prev" title="发布带source和javadoc的aar包">
+                发布带source和javadoc的aar包 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -504,7 +504,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -512,7 +512,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -521,7 +521,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="," />
+  <meta name="keywords" content="偏移地址," />
 
 
 
@@ -90,17 +90,19 @@
 
 
 
-<meta name="description" content="你说相遇是休止符的前奏你说结局是道不尽的悔疚你说黑夜让人失声无法嘶吼你说孤独让人沉溺忘了求救我心弦易动音纷纷后来都化成世间赞美的裂纹直到恐惧布满诱人的全身像玉的石头坚硬是不破碎的借口美丽是赶不走的忧愁">
-<meta name="keywords">
-<meta property="og:type" content="website">
-<meta property="og:title" content="像玉的石头">
-<meta property="og:url" content="http://Res2013.github.io/ss/像玉的石头.html">
+<meta name="description" content="前言
+JDK提供了sun.misc.Unsafe计算字段的偏移地址">
+<meta property="og:type" content="article">
+<meta property="og:title" content="偏移地址">
+<meta property="og:url" content="http://Res2013.github.io/ss/2018/06/08/Java基础/偏移地址/index.html">
 <meta property="og:site_name" content="Herry博客">
-<meta property="og:description" content="你说相遇是休止符的前奏你说结局是道不尽的悔疚你说黑夜让人失声无法嘶吼你说孤独让人沉溺忘了求救我心弦易动音纷纷后来都化成世间赞美的裂纹直到恐惧布满诱人的全身像玉的石头坚硬是不破碎的借口美丽是赶不走的忧愁">
-<meta property="og:updated_time" content="2016-05-14T17:16:23.890Z">
+<meta property="og:description" content="前言
+JDK提供了sun.misc.Unsafe计算字段的偏移地址">
+<meta property="og:updated_time" content="2018-06-24T09:05:40.082Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="像玉的石头">
-<meta name="twitter:description" content="你说相遇是休止符的前奏你说结局是道不尽的悔疚你说黑夜让人失声无法嘶吼你说孤独让人沉溺忘了求救我心弦易动音纷纷后来都化成世间赞美的裂纹直到恐惧布满诱人的全身像玉的石头坚硬是不破碎的借口美丽是赶不走的忧愁">
+<meta name="twitter:title" content="偏移地址">
+<meta name="twitter:description" content="前言
+JDK提供了sun.misc.Unsafe计算字段的偏移地址">
 
 
 
@@ -118,13 +120,7 @@
   };
 </script>
 
-  <title>
-  
-
-  
-    标签 | Herry博客
-  
-</title>
+  <title> 偏移地址 | Herry博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -155,7 +151,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -268,16 +264,174 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+
     
-      <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            目前共计 15 个标签
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                偏移地址
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-06-08T11:13:00+08:00" content="2018-06-08">
+              2018-06-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/偏移地址/" itemprop="url" rel="index">
+                    <span itemprop="name">偏移地址</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/06/08/Java基础/偏移地址/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/06/08/Java基础/偏移地址/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
         </div>
-        <div class="tag-cloud-tags">
-          <a href="/tags/C/" style="font-size: 12px; color: #ccc">C++</a> <a href="/tags/Hexo/" style="font-size: 12px; color: #ccc">Hexo</a> <a href="/tags/JNI/" style="font-size: 12px; color: #ccc">JNI</a> <a href="/tags/Node-js/" style="font-size: 12px; color: #ccc">Node.js</a> <a href="/tags/OkHttp/" style="font-size: 12px; color: #ccc">OkHttp</a> <a href="/tags/Proxy-Hook/" style="font-size: 12px; color: #ccc">Proxy&Hook</a> <a href="/tags/RxAndroid/" style="font-size: 12px; color: #ccc">RxAndroid</a> <a href="/tags/字符编码/" style="font-size: 12px; color: #ccc">字符编码</a> <a href="/tags/拦截器/" style="font-size: 12px; color: #ccc">拦截器</a> <a href="/tags/结构体对齐/" style="font-size: 12px; color: #ccc">结构体对齐</a> <a href="/tags/运行开源项目/" style="font-size: 12px; color: #ccc">运行开源项目</a>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>JDK提供了<code>sun.misc.Unsafe</code>计算字段的偏移地址</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="反射获取Unsafe对象"><a href="#反射获取Unsafe对象" class="headerlink" title="反射获取Unsafe对象"></a>反射获取Unsafe对象</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UnsafeUtils</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Unsafe <span class="title">getInstance</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Field unsafeField = Unsafe.class.getDeclaredField(<span class="string">"theUnsafe"</span>);</span><br><span class="line">        unsafeField.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">return</span> (Unsafe) unsafeField.get(<span class="keyword">null</span>);<span class="comment">// or Unsafe.class</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="获取偏移地址"><a href="#获取偏移地址" class="headerlink" title="获取偏移地址"></a>获取偏移地址</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// VO.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VO</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">long</span> b = <span class="number">19l</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// OffsetTest.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OffsetTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Unsafe unsafe = UnsafeUtils.getInstance();</span><br><span class="line">            <span class="keyword">long</span> aFieldOffset = unsafe.staticFieldOffset(VO.class.getField(<span class="string">"a"</span>));</span><br><span class="line">            <span class="keyword">long</span> bFieldOffset = unsafe.objectFieldOffset(VO.class.getDeclaredField(<span class="string">"b"</span>));</span><br><span class="line">            System.out.println(<span class="string">"aFieldOffset is: "</span> + aFieldOffset);</span><br><span class="line">            System.out.println(<span class="string">"bFieldOffset is: "</span> + bFieldOffset);</span><br><span class="line">            VO vo = <span class="keyword">new</span> VO();</span><br><span class="line">            <span class="keyword">long</span> bFieldValue = unsafe.getLong(vo, bFieldOffset);</span><br><span class="line">            System.out.println(<span class="string">"bFieldValue is: "</span> + bFieldValue);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创知识分享，您的支持将鼓励我继续创作!</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/weixin.png" alt="Herry WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/ali.png" alt="Herry Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/偏移地址/" rel="tag">#偏移地址</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/25/Gradle系列/断点调试Gradle Plugin/" rel="next" title="断点调试Gradle插件">
+                <i class="fa fa-chevron-left"></i> 断点调试Gradle插件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/08/Java基础/Proxy&Hook/" rel="prev" title="Proxy&Hook">
+                Proxy&Hook <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -288,8 +442,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="像玉的石头.html"
-           data-title="像玉的石头" data-url="http://Res2013.github.io/ss/像玉的石头.html">
+      <div class="ds-thread" data-thread-key="2018/06/08/Java基础/偏移地址/"
+           data-title="偏移地址" data-url="http://Res2013.github.io/ss/2018/06/08/Java基础/偏移地址/">
       </div>
     
   </div>
@@ -313,8 +467,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.png"
@@ -325,7 +488,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -333,7 +496,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -342,7 +505,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -391,6 +554,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#反射获取Unsafe对象"><span class="nav-number">1.1.</span> <span class="nav-text">反射获取Unsafe对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取偏移地址"><span class="nav-number">1.2.</span> <span class="nav-text">获取偏移地址</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -494,6 +668,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
