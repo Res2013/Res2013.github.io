@@ -78,7 +78,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Res2013博客" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Herry博客" type="application/atom+xml" />
 
 
 
@@ -92,12 +92,12 @@
 
 <meta name="description" content="Nothing Gold Can Stay">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Res2013博客">
+<meta property="og:title" content="Herry博客">
 <meta property="og:url" content="http://Res2013.github.io/ss/index.html">
-<meta property="og:site_name" content="Res2013博客">
+<meta property="og:site_name" content="Herry博客">
 <meta property="og:description" content="Nothing Gold Can Stay">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Res2013博客">
+<meta name="twitter:title" content="Herry博客">
 <meta name="twitter:description" content="Nothing Gold Can Stay">
 
 
@@ -116,7 +116,7 @@
   };
 </script>
 
-  <title> Res2013博客 </title>
+  <title> Herry博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -159,7 +159,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Res2013博客</span>
+      <span class="site-title">Herry博客</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -260,6 +260,393 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/06/08/C++/C结构体对齐规则/" itemprop="url">
+                  C结构体对齐规则
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-06-08T22:43:00+08:00" content="2018-06-08">
+              2018-06-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/06/08/C++/C结构体对齐规则/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/06/08/C++/C结构体对齐规则/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>&emsp;&emsp;1. <strong>offsetof</strong>，用于求结构体中一个成员在该结构体中的偏移量</p>
+<p>&emsp;&emsp;2. <strong>alignof</strong>，用于求一个类型的对齐值</p>
+<p>&emsp;&emsp;3. <strong>sizeof</strong>，用于求一个变量或类型的大小</p>
+<p>&emsp;&emsp;4. 对于<strong>所有基本类型</strong>，<strong>alignof(T) == sizeof(T)</strong></p>
+</blockquote>
+<h2 id="结构体对齐规则"><a href="#结构体对齐规则" class="headerlink" title="结构体对齐规则"></a>结构体对齐规则</h2><blockquote>
+<p>&emsp;&emsp;1. 结构体变量中<strong>成员的偏移量</strong>必须是该<strong>成员类型对齐值</strong>的<strong>整数倍</strong>。否则，它与前一个成员变量之间要<strong>填充(padding)</strong>一些无意义的字节来满足<br>&emsp;&emsp;2. 结构体大小必须是其中<strong>所有成员类型</strong>中<strong>对齐值最大者</strong>的整数倍。否则，在最后一个成员后面<strong>填充(padding)</strong></p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/06/08/C++/C结构体对齐规则/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/06/08/Java基础/Proxy&Hook/" itemprop="url">
+                  Proxy&Hook
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-06-08T22:43:00+08:00" content="2018-06-08">
+              2018-06-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Java基础</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/06/08/Java基础/Proxy&Hook/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/06/08/Java基础/Proxy&Hook/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h2><h3 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h3><blockquote>
+<p>使用组合模式(<strong>has</strong>关系)</p>
+</blockquote>
+<h3 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h3><h4 id="接口动态代理"><a href="#接口动态代理" class="headerlink" title="接口动态代理"></a>接口动态代理</h4><blockquote>
+<p>&emsp;&emsp;使用Proxy类和InvocationHandler接口</p>
+</blockquote>
+<h4 id="类动态代理"><a href="#类动态代理" class="headerlink" title="类动态代理"></a>类动态代理</h4><blockquote>
+<p>&emsp;&emsp;使用cglib库</p>
+</blockquote>
+<h2 id="输出Proxy类"><a href="#输出Proxy类" class="headerlink" title="输出Proxy类"></a>输出Proxy类</h2><blockquote>
+<p>&emsp;&emsp;Java中可以通过-D参数定义JVM系统参数，然后在代码中通过System.getProperty()获取系统参数。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JVM生成Proxy字节码文件，保存路径为：com/sun/proxy</span></span><br><span class="line">System.getProperties().put(<span class="string">"sun.misc.ProxyGenerator.saveGeneratedFiles"</span>, <span class="string">"true"</span>);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/06/08/Java基础/Proxy&Hook/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/05/24/Android/OkHttp加解密拦截器/" itemprop="url">
+                  OkHttp加解密拦截器
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-05-24T11:09:00+08:00" content="2018-05-24">
+              2018-05-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/OkHttp/" itemprop="url" rel="index">
+                    <span itemprop="name">OkHttp</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/05/24/Android/OkHttp加解密拦截器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/05/24/Android/OkHttp加解密拦截器/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>&emsp;&emsp;加、解密写到同一个拦截器里，如下所示：</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/05/24/Android/OkHttp加解密拦截器/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -410,8 +797,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/05/26/RxAndroid入门(一)/" itemprop="url">
-                  RxAndroid入门(一)
+                <a class="post-title-link" href="/2016/05/26/RxAndroid入门/" itemprop="url">
+                  RxAndroid入门
                 </a>
               
             
@@ -454,8 +841,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/26/RxAndroid入门(一)/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/26/RxAndroid入门(一)/" itemprop="commentsCount"></span>
+                <a href="/2016/05/26/RxAndroid入门/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/26/RxAndroid入门/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -486,7 +873,7 @@
 <p>&emsp;&emsp;<a href="https://github.com/ReactiveX/RxAndroid">RxAndroid</a>将大量的类绑定到<code>RxJava</code>，使得在<code>Android</code>应用中编写响应式组件变得非常直观、简单。并且它可以优雅地处理异步请求，配合上<a href="http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html">Lambda表达式</a>尤其是当中的<a href="http://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html">方法引用</a>，可以大大简化回调函数的处理，提高编码效率。</p>
 </blockquote>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/26/RxAndroid入门(一)/#more" rel="contents">
+            <a class="btn" href="/2016/05/26/RxAndroid入门/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -537,7 +924,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/05/17/Eclipse下Android-JNI开发方式之一/" itemprop="url">
+                <a class="post-title-link" href="/2016/05/17/NDK开发/Eclipse下Android-JNI开发方式之一/" itemprop="url">
                   Eclipse下Android JNI开发方式之一
                 </a>
               
@@ -565,8 +952,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android开发/" itemprop="url" rel="index">
-                    <span itemprop="name">Android开发</span>
+                  <a href="/categories/NDK开发/" itemprop="url" rel="index">
+                    <span itemprop="name">NDK开发</span>
                   </a>
                 </span>
 
@@ -581,8 +968,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/17/Eclipse下Android-JNI开发方式之一/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/17/Eclipse下Android-JNI开发方式之一/" itemprop="commentsCount"></span>
+                <a href="/2016/05/17/NDK开发/Eclipse下Android-JNI开发方式之一/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/17/NDK开发/Eclipse下Android-JNI开发方式之一/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -607,9 +994,9 @@
       
         
           <h1 id="Eclipse下Android-JNI开发方式之一"><a href="#Eclipse下Android-JNI开发方式之一" class="headerlink" title="Eclipse下Android JNI开发方式之一"></a>Eclipse下Android JNI开发方式之一</h1><h2 id="创建一个Android工程"><a href="#创建一个Android工程" class="headerlink" title="创建一个Android工程"></a>创建一个Android工程</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.jnitest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> TextView mTextView;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        mTextView = (TextView) findViewById(R.id.tv_main);</span><br><span class="line">        JNITest jni = <span class="keyword">new</span> JNITest();</span><br><span class="line">        String str = jni.getJNIString();</span><br><span class="line">        mTextView.setText(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="设计一个JNI接口"><a href="#设计一个JNI接口" class="headerlink" title="设计一个JNI接口"></a>设计一个JNI接口</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.jnitest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JNITest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">boolean</span> <span class="title">init</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">getJNIString</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="设计一个JNI接口"><a href="#设计一个JNI接口" class="headerlink" title="设计一个JNI接口"></a>设计一个JNI接口</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.jnitest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JNITest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">boolean</span> <span class="title">init</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">getJNIString</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/17/Eclipse下Android-JNI开发方式之一/#more" rel="contents">
+            <a class="btn" href="/2016/05/17/NDK开发/Eclipse下Android-JNI开发方式之一/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -688,8 +1075,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/知识理解/" itemprop="url" rel="index">
-                    <span itemprop="name">知识理解</span>
+                  <a href="/categories/字符编码/" itemprop="url" rel="index">
+                    <span itemprop="name">字符编码</span>
                   </a>
                 </span>
 
@@ -740,128 +1127,6 @@
 </blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/05/16/字符编码浅谈/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/15/像玉的石头/" itemprop="url">
-                  像玉的石头
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-15T01:12:34+08:00" content="2016-05-15">
-              2016-05-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/诗句欣赏/" itemprop="url" rel="index">
-                    <span itemprop="name">诗句欣赏</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/15/像玉的石头/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/15/像玉的石头/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>你说相遇是休止符的前奏<br>你说结局是道不尽的悔疚<br>你说黑夜让人失声无法嘶吼<br>你说孤独让人沉溺忘了求救<br>我心弦易动音纷纷<br>后来都化成世间赞美的裂纹<br>直到恐惧布满诱人的全身<br>像玉的石头坚硬是不破碎的借口<br>美丽是赶不走的忧愁<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/15/像玉的石头/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1051,14 +1316,14 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.png"
-               alt="Res2013" />
-          <p class="site-author-name" itemprop="name">Res2013</p>
+               alt="Herry" />
+          <p class="site-author-name" itemprop="name">Herry</p>
           <p class="site-description motion-element" itemprop="description">Nothing Gold Can Stay</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1066,7 +1331,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1075,7 +1340,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1101,15 +1366,6 @@
                     <i class="fa fa-fw fa-github"></i>
                   
                   GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/2739868452" target="_blank" title="微博">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  微博
                 </a>
               </span>
             
@@ -1148,11 +1404,11 @@
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Res2013</span>
+  <span class="author" itemprop="copyrightHolder">Herry</span>
 </div>
 
 <div class="powered-by">
